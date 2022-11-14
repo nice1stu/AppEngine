@@ -1,0 +1,12 @@
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\bin\Debug\net6.0\Maths.deps.json
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\bin\Debug\net6.0\Maths.dll
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\bin\Debug\net6.0\Maths.pdb
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\Maths.csproj.AssemblyReference.cache
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\Maths.GeneratedMSBuildEditorConfig.editorconfig
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\Maths.AssemblyInfoInputs.cache
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\Maths.AssemblyInfo.cs
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\Maths.csproj.CoreCompileInputs.cache
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\Maths.dll
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\refint\Maths.dll
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\Maths.pdb
+C:\Unity Projects\106-maths-and-physics-nice1stu\AppEngine\Maths\obj\Debug\net6.0\ref\Maths.dll
