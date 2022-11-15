@@ -2,21 +2,12 @@
 
 public struct Vector
 {
-    public int x, y, z;
-    public Vector(int x, int y, int z)
-    {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
+    public float X, Y, Z;
 
-    public static Vector Zero
+    public Vector(float x, float y, float z)
     {
-        get => new Vector(0, 0, 0);
-    }
-
-    public static Vector Inverse
-    {
-        get => new Vector(1, 0, 0);
+        X = x;
+        Y = y;
+        Z = z;
     }
 }

@@ -1,28 +1,13 @@
-using NUnit.Framework;
-
 namespace Maths.Test;
 
 public class VectorTests
 {
-
     [Test]
-    [TestCase()]
-    public void ConstructorAssignsAllComponents()
+    public void ConstructorTest()
     {
-        Vector actual = new Vector(3, 2, 5);
-
-        Vector expected;
-        expected.X = 3;
-        expected.Y = 2;
-        expected.Z = 5;
-
-        Assert.That(actual, Is.EqualTo(expected));
-    }
-
-    [Test]
-    public void NegatePropertyInverseVector(float x, float y, float z)
-    {
-        Vector right = new Vector(1f, 0, 0);
-        Vector left = right.Inverse();
+        Vector v = new Vector(3, 2, 1);
+        Assert.AreEqual(3, v.X);
+        Assert.AreEqual(2, v.Y);
+        Assert.AreEqual(1, v.Z);
     }
 }
