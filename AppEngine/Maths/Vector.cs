@@ -2,16 +2,19 @@
 
 public struct Vector
 {
-    public float X, Y, Z;
+    public float x, y, z;
 
     public static Vector Zero => new Vector(0, 0, 0);
-    public Vector Inverse => new Vector(-1, 0, 0);
 
+    public Vector Inverse()
+    {
+        return new(-x, -y, -z);
+    }
 
     public Vector(float x, float y, float z)
     {
-        this.X = x;
-        this.Y = y;
-        this.Z = z;
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 }

@@ -11,9 +11,9 @@ public class VectorTests
         Vector actual = new Vector(x, y, z);
 
         Vector expected;
-        expected.X = x;
-        expected.Y = y;
-        expected.Z = z;
+        expected.x = x;
+        expected.y = y;
+        expected.z = z;
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -27,11 +27,21 @@ public class VectorTests
     }
 
     [Test]
-    public void NegatePropertyReturnNegatedVector()
+    [TestCase(1F, 0F, 0F)]
+    [TestCase(-12F, 0.001F, -100.5F)]
+    public void NegatePropertyReturnNegatedVector(float x, float y, float z)
     {
-        Vector right = new Vector(1f, 0, 0);
-        Vector left = right.Inverse;
-        
-        Assert.That(left, Is.EqualTo(new  Vector(-1,0,0)));
+        Vector original = new Vector(x, y, z);
+
+        Assert.That(original.Inverse(), Is.EqualTo(new  Vector(-x,-y,-z)));
+    }
+    [Test]
+    public void InverseDoesNotAffectOriginalVector()
+    {
+        Vector original = new Vector(12f, 11f, 10f);
+        Vector expected = new Vector(12f, 11f, 10f);
+        original.Inverse();
+
+        Assert.That(original, Is.EqualTo(expected));
     }
 }
