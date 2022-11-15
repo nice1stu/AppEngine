@@ -2,12 +2,14 @@
 
 public struct Vector
 {
-    public float X, Y, Z;
+    public float X = 5, Y = .23f, Z = -2.5f;
 
-    public Vector(float x, float y, float z)
+    Vector right = new Vector(1f, 0f, 0f);
+
+    public Vector(float x, float y, float z) : this()
     {
-        this.X = x;
-        this.Y = y;
-        this.Z = z;
+        X = x;
+        Y = y;
+        Z = z;
     }
 }
