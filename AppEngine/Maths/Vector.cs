@@ -6,8 +6,8 @@ public struct Vector
 
     public Vector(float x, float y, float z)
     {
-        this.X = 3;
-        this.Y = 2;
-        this.Z = 5;
+        this.X = x;
+        this.Y = y;
+        this.Z = z;
     }
 }

@@ -3,15 +3,17 @@ namespace Maths.Test;
 public class VectorTests
 {
     [Test]
-    public void ConstructorAssignAllComponents()
+    [TestCase(3F, 2F, 5F)]
+    [TestCase(-1F, 0F, 12F)]
+    public void ConstructorAssignAllComponents(float x, float y, float z)
     {
-        Vector actual = new Vector(3, 2, 5);
+        Vector actual = new Vector(x, y, z);
 
         Vector expected;
-        expected.X = 3;
-        expected.Y = 2;
-        expected.Z = 5;
+        expected.X = x;
+        expected.Y = y;
+        expected.Z = z;
         
-        Assert.AreEqual(expected, actual);
+        Assert.That(actual, Is.EqualTo(expected));
     }
 }
