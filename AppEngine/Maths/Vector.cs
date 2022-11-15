@@ -2,14 +2,23 @@
 
 public struct Vector
 {
-    public float X = 5, Y = .23f, Z = -2.5f;
+    public float X, Y, Z;
 
-    Vector right = new Vector(1f, 0f, 0f);
 
-    public Vector(float x, float y, float z) : this()
+    public Vector(float x, float y, float z)
     {
-        X = x;
-        Y = y;
-        Z = z;
+        this.X = x;
+        this.Y = y;
+        this.Z = z;
     }
+
+    private static Vector Zero { get; }
+    
+    private static Vector Inverse { get; }
+
+    public float MultiplyWith()
+    {
+        return;
+    }
+    
 }
