@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maths", "Maths\Maths.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maths.Test", "Maths.Test\Maths.Test.csproj", "{1022CF7B-AA3A-4B64-8079-D5C0D6D5F30E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppEngine", "AppEngine\AppEngine.csproj", "{573C6CC4-4F6A-4405-BDA2-B4E5672496BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{1022CF7B-AA3A-4B64-8079-D5C0D6D5F30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1022CF7B-AA3A-4B64-8079-D5C0D6D5F30E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1022CF7B-AA3A-4B64-8079-D5C0D6D5F30E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{573C6CC4-4F6A-4405-BDA2-B4E5672496BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{573C6CC4-4F6A-4405-BDA2-B4E5672496BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{573C6CC4-4F6A-4405-BDA2-B4E5672496BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{573C6CC4-4F6A-4405-BDA2-B4E5672496BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
