@@ -5,6 +5,7 @@ public class VectorTests
     [Test]
     [TestCase(3F, 2F, 5F)]
     [TestCase(-1F, 0F, 12F)]
+    [TestCase(-2F, 1.5F, 0.001F)]
     public void ConstructorAssignAllComponents(float x, float y, float z)
     {
         Vector actual = new Vector(x, y, z);
@@ -15,5 +16,13 @@ public class VectorTests
         expected.Z = z;
         
         Assert.That(actual, Is.EqualTo(expected));
+    }
+    
+    [Test]
+    public void ZeroPropertyReturnZeroVector()
+    {
+        Vector expected = new Vector(0F, 0F, 0F);
+
+        Assert.That(Vector.Zero, Is.EqualTo(expected));
     }
 }
