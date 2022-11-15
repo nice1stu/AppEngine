@@ -2,23 +2,21 @@
 
 public struct Vector
 {
-    public float X, Y, Z;
-
-
-    public Vector(float x, float y, float z)
+    public int x, y, z;
+    public Vector(int x, int y, int z)
     {
-        this.X = x;
-        this.Y = y;
-        this.Z = z;
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
-    private static Vector Zero { get; }
-    
-    private static Vector Inverse { get; }
-
-    public float MultiplyWith()
+    public static Vector Zero
     {
-        return;
+        get => new Vector(0, 0, 0);
     }
-    
+
+    public static Vector Inverse
+    {
+        get => new Vector(1, 0, 0);
+    }
 }
