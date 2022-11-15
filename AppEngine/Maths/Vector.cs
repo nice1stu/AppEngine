@@ -3,6 +3,13 @@
 public struct Vector
 {
     public float x, y, z;
+    
+    public Vector(float x, float y, float z)
+    {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
 
     public static Vector Zero => new Vector(0, 0, 0);
 
@@ -11,10 +18,23 @@ public struct Vector
         return new(-x, -y, -z);
     }
 
-    public Vector(float x, float y, float z)
+    public Vector MultiplyWith(float k)
     {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        return new( x,  y,  z);
+    }
+    
+    public Vector DivideBy(float d)
+    {
+        return new( x,  y,  z);
+    }
+
+    public Vector Add(Vector movement)
+    {
+        return new Vector(x, y, z);
+    }
+    
+    public Vector Subtract(Vector playerPosition)
+    {
+        return new Vector(x, y, z);
     }
 }

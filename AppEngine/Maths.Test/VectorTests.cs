@@ -44,4 +44,44 @@ public class VectorTests
 
         Assert.That(original, Is.EqualTo(expected));
     }
+
+    [Test]
+    public void MultiplyWith()
+    {
+        Vector right = new Vector(1f, 0, 0);
+        float movementSpeed = 5f;
+        Vector movement = right.MultiplyWith(movementSpeed); // (5, 0, 0)
+        
+        Assert.That(movement, Is.EqualTo(new Vector(5,0,0)));
+    }
+
+    [Test]
+    public void DivideBy()
+    {
+        Vector right = new Vector(1f, 0, 0);
+        float fps = 50;
+        Vector movement = right.DivideBy(fps); // (0.02, 0, 0)
+        
+        Assert.That(movement, Is.EqualTo(new Vector(0.02f, 0, 0)));
+    }
+
+    [Test]
+    public void Add()
+    {
+        Vector position = new Vector(12, 3, -2);
+        Vector movement = new Vector(2, -1, 0);
+        position = position.Add(movement); // (14, 2, -2)
+        
+        Assert.That(movement, Is.EqualTo (new Vector(14 ,2 ,-2)));
+    }
+    
+    [Test]
+    public void Subtract()
+    {
+        Vector playerPosition = new Vector(12, 3, -2);
+        Vector enemyPosition = new Vector(14, 1, -2);
+        Vector directionToEnemy = enemyPosition.Subtract(playerPosition); // (2, -2, 0)
+        
+        Assert.That(playerPosition, Is.EqualTo (new Vector(2 ,-2 ,0)));
+    }
 }
