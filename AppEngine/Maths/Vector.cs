@@ -4,10 +4,9 @@ public struct Vector
 {
     public float X, Y, Z;
 
-    public static Vector Zero
-    {
-        get => new Vector(0, 0, 0);
-    }
+    public static Vector Zero => new Vector(0, 0, 0);
+    public Vector Inverse => new Vector(-1, 0, 0);
+
 
     public Vector(float x, float y, float z)
     {

@@ -25,4 +25,13 @@ public class VectorTests
 
         Assert.That(Vector.Zero, Is.EqualTo(expected));
     }
+
+    [Test]
+    public void NegatePropertyReturnNegatedVector()
+    {
+        Vector right = new Vector(1f, 0, 0);
+        Vector left = right.Inverse;
+        
+        Assert.That(left, Is.EqualTo(new  Vector(-1,0,0)));
+    }
 }
