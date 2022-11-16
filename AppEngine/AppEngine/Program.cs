@@ -33,12 +33,23 @@ layout (location = 0) in vec3 position;
 
 void main()
 {
-    gl_position = vec4(position.x, position.y, position.z, 1.0);
+    gl_Position = vec4(position.x, position.y, position.z, 1.0);
+}
 ";
 
 uint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 glShaderSource(vertexShader, vertexShaderCode);
 glCompileShader(vertexShader);
+
+unsafe
+{
+    int success;
+    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
+    if (success == GL_FALSE)
+    {
+        Console.WriteLine("Error compiling vertex Shader:"+glGetShaderInfoLog(vertexShader));
+    }
+}
 
 // create fragment shader (pixel shader)
 const string fragmentShaderCode = @"
@@ -55,6 +66,16 @@ void main()
 uint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 glShaderSource(fragmentShader, fragmentShaderCode);
 glCompileShader(fragmentShader);
+
+unsafe
+{
+    int success;
+    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+    if (success == GL_FALSE)
+    {
+        Console.WriteLine("Error compiling fragment Shader:"+glGetShaderInfoLog(fragmentShader));
+    }
+}
 
 // create & use render pipeline
 uint shaderProgram = glCreateProgram();
@@ -78,6 +99,7 @@ glBindVertexArray(vertexArrayObject);
 // create & use a buffer for vertex array data
 uint vertexBufferObject = glGenBuffer();
 glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
+
 unsafe
 {
     fixed(float* vertex = &vertices[0])
@@ -100,10 +122,11 @@ while (!Glfw.WindowShouldClose(window))
     // render
     if (isSpacePressed)
     {
-        glClearColor(.2f, .05f,.2f, 1);
+        glClearColor(.2f, .05f,.2f, 1f);
     }else
         glClearColor(0, 0,0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+    
     // draw whatever vertices are currently bound
     glDrawArrays(GL_TRIANGLES, 0, 3);
     
