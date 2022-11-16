@@ -31,15 +31,17 @@ float[] vertices =
     +.5f, -.5f, 0f,
     0f, +.5f, 0f
 };
-
+// create & use a cache for vertex buffer
 uint vertexarrayObject = glGenVertexArray();
 glBindVertexArray(vertexarrayObject);
+// create & use a buffer for vertex array data
 uint vertexBufferObject = glGenBuffer();
 glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
 unsafe
 {
     fixed(float* vertex = &vertices[0])
     {
+        // the c++ to copy 9 flats from the address of any 
         glBufferData(GL_ARRAY_BUFFER, sizeof(float)*vertices.Length, vertex, GL_STATIC_DRAW);
     }
 }
@@ -59,8 +61,10 @@ while (!Glfw.WindowShouldClose(window))
     }else
         glClearColor(0, 0,0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+    // draw whatever vertices are currently bound
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
     //glFlush();
     Glfw.SwapBuffers(window);
 }
-
 Glfw.Terminate();
