@@ -90,7 +90,7 @@ public class VectorTests
     [Test]
     public void Magnitude()
     {
-        Vector playerPosition = new Vector(3f, 4f, 0f);
+        Vector playerPosition = new Vector(3, 4, 0);
         // magnitude = sqrt ( x*x + y*y + z*z)
         float magnitude = playerPosition.magnitude; // 5
         
