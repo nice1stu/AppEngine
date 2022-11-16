@@ -1,3 +1,5 @@
+using System.Threading.Tasks.Dataflow;
+
 namespace Maths.Test;
 
 public class VectorTests
@@ -83,5 +85,15 @@ public class VectorTests
         Vector directionToEnemy = enemyPosition.Subtract(playerPosition); // (2, -2, 0)
         
         Assert.That(playerPosition, Is.EqualTo (new Vector(2 ,-2 ,0)));
+    }
+
+    [Test]
+    public void Magnitude()
+    {
+        Vector playerPosition = new Vector(3, 4, 0);
+        // magnitude = sqrt ( x*x + y*y + z*z)
+        float magnitude = playerPosition.magnitude; // 5
+        
+        Assert.That(magnitude, Is.EqualTo(playerPosition.magnitude));
     }
 }

@@ -11,7 +11,10 @@ public struct Vector
         this.z = z;
     }
 
-    public static Vector Zero => new Vector(0, 0, 0);
+    public static Vector Zero
+    {
+        get { return new Vector(0, 0, 0); }
+    }
 
     public Vector Inverse()
     {
@@ -36,5 +39,10 @@ public struct Vector
     public Vector Subtract(Vector playerPosition)
     {
         return new Vector(x, y, z);
+    }
+    
+    public Vector Magnitude (Vector playerPosition)
+    {
+        return;
     }
 }
