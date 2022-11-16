@@ -40,9 +40,13 @@ public struct Vector
     {
         return new Vector(x, y, z);
     }
-    
-    public Vector Magnitude (Vector playerPosition)
+    public static Vector Magnitude
     {
-        return;
+        get { return Magnitude; }
+    }
+
+    public static Vector SquareMagnitude
+    {
+        get { return SquareMagnitude; }
     }
 }

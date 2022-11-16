@@ -90,9 +90,19 @@ public class VectorTests
     [Test]
     public void Magnitude()
     {
-        Vector playerPosition = new Vector(3, 4, 0);
+        Vector playerPosition = new Vector(3f, 4f, 0f);
         // magnitude = sqrt ( x*x + y*y + z*z)
         float magnitude = playerPosition.magnitude; // 5
+        
+        Assert.That(magnitude, Is.EqualTo(playerPosition.magnitude));
+    }
+
+    [Test]
+    public void SquareMagnitude()
+    {
+        Vector playerPosition = new Vector(3, 4, 0);
+        // SquareMagnitude =  x*x + y*y + z+z
+        float magnitude = playerPosition.Magnitude; // 25
         
         Assert.That(magnitude, Is.EqualTo(playerPosition.magnitude));
     }
