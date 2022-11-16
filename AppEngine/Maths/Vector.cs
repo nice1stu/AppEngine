@@ -49,4 +49,14 @@ public struct Vector
     {
         get { return SquareMagnitude; }
     }
+
+    public static Vector DistanceTo
+    {
+        get { return DistanceTo; }
+    } 
+    
+    public static Vector SquareDistanceTo
+    {
+        get { return SquareDistanceTo; }
+    } 
 }
