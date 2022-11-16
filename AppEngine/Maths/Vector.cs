@@ -72,4 +72,10 @@ public struct Vector
             return (((enemyPosition.x-this.x)*(enemyPosition.x-this.x)) + ((enemyPosition.y-this.y)*(enemyPosition.y-this.y)) + ((enemyPosition.z-this.z)*(enemyPosition.z-this.z)));
         }
     }
+
+    public Vector Normalized(Vector enemyDisplacement)
+    {
+        float magnitude = MathF.Sqrt((x * x) + (y * y) + (z * z));
+        return new Vector (x / magnitude, y / magnitude, z / magnitude);
+    }
 }

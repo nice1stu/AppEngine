@@ -126,4 +126,14 @@ public class VectorTests
                  
          Assert.That(distance, Is.EqualTo(playerPosition.SquareDistanceTo(enemyPosition)));
      }
+
+     [Test]
+
+     public void Normalized()
+     {
+         Vector enemyDisplacement = new Vector(4, 0, 3);
+         Vector enemyDirection = enemyDisplacement.Normalized; // (0.8, 0. 0.6)
+         
+         Assert.That(enemyDirection, Is.EqualTo(0.8, 0.0, 0.6));
+     }
 }
