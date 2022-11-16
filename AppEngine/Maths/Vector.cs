@@ -65,4 +65,11 @@ public struct Vector
             return MathF.Sqrt(((enemyPosition.x-this.x)*(enemyPosition.x-this.x)) + ((enemyPosition.y-this.y)*(enemyPosition.y-this.y)) + ((enemyPosition.z-this.z)*(enemyPosition.z-this.z)));
         }
     }
+    
+    public float SquareDistanceTo (Vector enemyPosition)
+    {
+        {
+            return MathF.Sqrt(((enemyPosition.x-this.x)*(enemyPosition.x-this.x)) + ((enemyPosition.y-this.y)*(enemyPosition.y-this.y)) + ((enemyPosition.z-this.z)*(enemyPosition.z-this.z)));
+        }
+    }
 }

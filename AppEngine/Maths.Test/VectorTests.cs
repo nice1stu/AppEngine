@@ -116,14 +116,14 @@ public class VectorTests
          
          Assert.That(distance, Is.EqualTo(10f));
      }
-    //
-    // [Test]
-    // public void SquareDistanceTo()
-    // {
-    //     Vector playerPosition = new Vector(3, 4, -2);
-    //     Vector enemyPosition = new Vector(9, 4, 6);
-    //     float distance = playerPosition.SquaredDistanceTo(enemyPosition); // 100
-    //             
-    //     Assert.That(distance, Is.EqualTo(playerPosition.SquaredDistanceTo()));
-    // }
+    
+     [Test]
+     public void SquareDistanceTo()
+     {
+         Vector playerPosition = new Vector(3, 4, -2);
+         Vector enemyPosition = new Vector(9, 4, 6);
+         float distance = playerPosition.SquareDistanceTo(enemyPosition); // 100
+                 
+         Assert.That(distance, Is.EqualTo(playerPosition.SquareDistanceTo(enemyPosition)));
+     }
 }
