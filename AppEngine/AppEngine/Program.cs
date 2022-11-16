@@ -62,6 +62,17 @@ while (!window.ShouldClose)
         }
     }
     
+    else
+    {
+        if (window.GetKey(Keys.W))
+        {
+            for (int i = 0; i < vertices.Length; i++)
+            {
+                vertices[i] = vertices[i].DivideBy(1.01f);
+            }
+        }
+    }
+    
     window.EndRender();
 }
 Glfw.Terminate();
