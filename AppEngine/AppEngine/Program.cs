@@ -13,13 +13,13 @@ material.Use();
 
 Vector[] vertices =
 {
-    new Vector(-.5f, -.5f, 0f),
-    new Vector(+.5f, -.5f, 0f),
-    new Vector(0f, +.5f, 0f),
+    new Vector(-.5f, -.9f, 0f),
+    new Vector(+.5f, -.9f, 0f),
+    new Vector(0f, 0f, 0f),
     
-    new Vector(.5f, .5f, 0f),
-    new Vector(-.5f, .5f, 0f),
-    new Vector(0f, -.5f, 0f)
+    new Vector(.5f, .9f, 0f),
+    new Vector(-.5f, .9f, 0f),
+    new Vector(0f, 0f, 0f)
 }; 
     // create & use a cache for vertex buffer
 uint vertexArrayObject = glGenVertexArray();
