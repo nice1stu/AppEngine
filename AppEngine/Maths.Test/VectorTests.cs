@@ -112,9 +112,9 @@ public class VectorTests
      {
          Vector playerPosition = new Vector(3, 4, -2);
          Vector enemyPosition = new Vector(9, 4, 6);
-         //float distance = playerPosition.DistanceTo(enemyPosition);
+         float distance = playerPosition.DistanceTo(enemyPosition);
          
-         //Assert.That(distance, Is.EqualTo(10));
+         Assert.That(distance, Is.EqualTo(10f));
      }
     //
     // [Test]
