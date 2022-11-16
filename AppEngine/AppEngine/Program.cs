@@ -51,16 +51,42 @@ while (!window.ShouldClose)
             vertices[i] = vertices[i].MultiplyWith(1.01f);
         }
     }
-    else
+    else if (window.GetKey(Keys.G))
     {
-        if (window.GetKey(Keys.G))
-        {
             for (int i = 0; i < vertices.Length; i++)
             {
                 vertices[i] = vertices[i].DivideBy(1.01f);
             }
+    }
+    else if (window.GetKey(Keys.W))
+    {
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = vertices[i].Add(new Vector(x:0.0f, y:0.01f, z:0.0f));
         }
     }
+    else if (window.GetKey(Keys.S))
+    {
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = vertices[i].Add(new Vector(x:0.0f, y:-0.01f, z:0.0f));
+        }
+    }
+    else if (window.GetKey(Keys.A))
+    {
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = vertices[i].Add(new Vector(x:-0.01f, y:0.0f, z:0.0f));
+        }
+    }
+    else if (window.GetKey(Keys.D))
+    {
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = vertices[i].Add(new Vector(x:+0.01f, y:0.0f, z:0.0f));
+        }
+    }
+    
     
     window.EndRender();
 }

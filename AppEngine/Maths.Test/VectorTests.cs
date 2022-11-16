@@ -140,7 +140,37 @@ public class VectorTests
      {
          bool isUnitVector = new Vector(3, -1, 0).IsUnitVector; // false
          isUnitVector = new Vector(-1, 0, 0).IsUnitVector; // true  
-     }*/
+     }
      
-
+     [Test]
+     public void Dot()
+     {
+     Vector a = new Vector(1, -2, 4);
+     Vector b = new Vector(-2, 3, 0.5f);
+     float dot = a.Dot(b); // -6
+     }
+     
+     [Test]
+     public void AngleBetweenRad()
+     {
+     Vector a = new Vector(5, 0, 0);
+     Vector b = new Vector(3, 3, 0);
+     float angle = Vector.AngleBetweenRad(a, b); // arccos(0.5·√2) ≈ 0.785398163
+     }
+     
+     [Test]
+     public void AngleBetweenDeg()
+     {
+     Vector a = new Vector(5, 0, 0);
+     Vector b = new Vector(3, 3, 0);
+     float angle = Vector.AngleBetweenDeg(a, b); // 45
+     }
+     
+     [Test]
+     public void Cross()
+     {
+     Vector right = new Vector(1, 0, 0);
+     Vector up = new Vector(0, 1, 0);
+     Vector forward = right.Cross(up); // (0, 0, 1)
+     }*/
 }
