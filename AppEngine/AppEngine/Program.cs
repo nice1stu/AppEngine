@@ -25,7 +25,7 @@ while (!Glfw.WindowShouldClose(window))
     // update your game
     
     // render
-    glClearColor(.2f, .05f,.2f, 1);
+    glClearColor(.2f, .05f,.5f, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     //glFlush();
     Glfw.SwapBuffers(window);

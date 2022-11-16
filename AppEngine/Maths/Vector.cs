@@ -16,6 +16,8 @@ public struct Vector
         get { return new Vector(0, 0, 0); }
     }
 
+
+
     public Vector Inverse()
     {
         return new(-x, -y, -z);
@@ -23,40 +25,38 @@ public struct Vector
 
     public Vector MultiplyWith(float k)
     {
-        return new( x,  y,  z);
-    }
-    
-    public Vector DivideBy(float d)
-    {
-        return new( x,  y,  z);
+        return new( x*k,  y*k,  z*k);
     }
 
-    public Vector Add(Vector movement)
+    public Vector DivideBy(float k)
     {
-        return new Vector(x, y, z);
-    }
-    
-    public Vector Subtract(Vector playerPosition)
-    {
-        return new Vector(x, y, z);
-    }
-    public static Vector Magnitude
-    {
-        get { return Magnitude; }
+        return new( x/k,  y/k,  z/k);
     }
 
-    public static Vector SquareMagnitude
+    public Vector Add(Vector v)
     {
-        get { return SquareMagnitude; }
+        return new Vector(x + v.x, y + v.y, z + v.z);
+    }
+    
+    public Vector Subtract(Vector v)
+    {
+        return new Vector(x - v.x, y - v.y, z - v.z);
     }
 
-    public static Vector DistanceTo
+    public float Magnitude
     {
-        get { return DistanceTo; }
-    } 
+        get
+        {
+         return MathF.Sqrt((x * x) + (y * y) + (z * z));
+        }
+    }
     
-    public static Vector SquareDistanceTo
+    public float SquareMagnitude
     {
-        get { return SquareDistanceTo; }
-    } 
+        get
+        {
+            return (x * x) + (y * y) + (z * z);
+        }
+    }
+    
 }

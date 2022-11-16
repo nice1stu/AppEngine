@@ -12,7 +12,7 @@ public class VectorTests
     {
         Vector actual = new Vector(x, y, z);
 
-        Vector expected;
+        Vector expected = default;
         expected.x = x;
         expected.y = y;
         expected.z = z;
@@ -56,7 +56,7 @@ public class VectorTests
         
         Assert.That(movement, Is.EqualTo(new Vector(5,0,0)));
     }
-
+    
     [Test]
     public void DivideBy()
     {
@@ -66,7 +66,7 @@ public class VectorTests
         
         Assert.That(movement, Is.EqualTo(new Vector(0.02f, 0, 0)));
     }
-
+    
     [Test]
     public void Add()
     {
@@ -76,55 +76,54 @@ public class VectorTests
         
         Assert.That(movement, Is.EqualTo (new Vector(14 ,2 ,-2)));
     }
-    
     [Test]
     public void Subtract()
     {
-        Vector playerPosition = new Vector(12, 3, -2);
-        Vector enemyPosition = new Vector(14, 1, -2);
-        Vector directionToEnemy = enemyPosition.Subtract(playerPosition); // (2, -2, 0)
-        
-        Assert.That(playerPosition, Is.EqualTo (new Vector(2 ,-2 ,0)));
+         Vector playerPosition = new Vector(12, 3, -2);
+         Vector enemyPosition = new Vector(14, 1, -2);
+         Vector directionToEnemy = enemyPosition.Subtract(playerPosition); // (2, -2, 0)
+         
+         Assert.That(playerPosition, Is.EqualTo (new Vector(2 ,-2 ,0)));
     }
+    
+     [Test]
+     public void MagnitudeofVector()
+     {
+         Vector playerP = new Vector(3, 4, 0);
+         //float magnitude = MathF.Sqrt((playerP.x * playerP.x) + (playerP.y * playerP.y) + (playerP.z * playerP.z));
+         float magnitude = playerP.Magnitude;//playerPosition.Magnitude; //5
 
-    [Test]
-    public void Magnitude()
-    {
-        Vector playerPosition = new Vector(3, 4, 0);
-        // magnitude = sqrt ( x*x + y*y + z*z)
-        float magnitude = playerPosition.magnitude; // 5
-        
-        Assert.That(magnitude, Is.EqualTo(playerPosition.magnitude));
-    }
-
-    [Test]
-    public void SquareMagnitude()
-    {
-        Vector playerPosition = new Vector(3, 4, 0);
-        // SquareMagnitude =  x*x + y*y + z+z
-        float magnitude = playerPosition.Magnitude; // 25
-        
-        Assert.That(magnitude, Is.EqualTo(playerPosition.magnitude));
-    }
-
-    [Test]
-
-    public void DistanceTo()
-    {
-        Vector playerPosition = new Vector(3, 4, -2);
-        Vector enemyPosition = new Vector(9, 4, 6);
-        float distance = playerPosition.DistanceTo(enemyPosition); // 10
-        
-        Assert.That(distance, Is.EqualTo(playerPosition.magnitude));
-    }
-
-    [Test]
-    public void SquareDistanceTo()
-    {
-        Vector playerPosition = new Vector(3, 4, -2);
-        Vector enemyPosition = new Vector(9, 4, 6);
-        float distance = playerPosition.SquaredDistanceTo(enemyPosition); // 100
-                
-        Assert.That(distance, Is.EqualTo(playerPosition.SquaredDistanceTo()));
-    }
+         Assert.That(magnitude, Is.EqualTo(5f));
+     }
+    
+     [Test]
+     public void SquareMagnitude()
+     {
+         Vector playerPosition = new Vector(3, 4, 0);
+         // SquareMagnitude =  x*x + y*y + z+z
+         float magnitude = playerPosition.SquareMagnitude; // 25
+         
+         Assert.That(magnitude, Is.EqualTo(25.0f));
+     }
+    //
+    // [Test]
+    //
+    // public void DistanceTo()
+    // {
+    //     Vector playerPosition = new Vector(3, 4, -2);
+    //     Vector enemyPosition = new Vector(9, 4, 6);
+    //     float distance = playerPosition.DistanceTo(enemyPosition); // 10
+    //     
+    //     Assert.That(distance, Is.EqualTo(playerPosition.magnitude));
+    // }
+    //
+    // [Test]
+    // public void SquareDistanceTo()
+    // {
+    //     Vector playerPosition = new Vector(3, 4, -2);
+    //     Vector enemyPosition = new Vector(9, 4, 6);
+    //     float distance = playerPosition.SquaredDistanceTo(enemyPosition); // 100
+    //             
+    //     Assert.That(distance, Is.EqualTo(playerPosition.SquaredDistanceTo()));
+    // }
 }
