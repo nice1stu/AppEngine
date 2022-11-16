@@ -62,7 +62,7 @@ public struct Vector
     public float DistanceTo (Vector enemyPosition)
     {
         {
-            return MathF.Sqrt((this.x * enemyPosition.x) + (this.y * enemyPosition.y) + (this.z * enemyPosition.z));
+            return MathF.Sqrt(((enemyPosition.x-this.x)*(enemyPosition.x-this.x)) + ((enemyPosition.y-this.y)*(enemyPosition.y-this.y)) + ((enemyPosition.z-this.z)*(enemyPosition.z-this.z)));
         }
     }
 }
