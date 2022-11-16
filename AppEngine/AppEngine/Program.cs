@@ -15,7 +15,11 @@ Vector[] vertices =
 {
     new Vector(-.5f, -.5f, 0f),
     new Vector(+.5f, -.5f, 0f),
-    new Vector(0f, +.5f, 0f)
+    new Vector(0f, +.5f, 0f),
+    
+    new Vector(.5f, .5f, 0f),
+    new Vector(-.5f, .5f, 0f),
+    new Vector(0f, -.5f, 0f)
 }; 
     // create & use a cache for vertex buffer
 uint vertexArrayObject = glGenVertexArray();
@@ -38,7 +42,7 @@ while (!window.ShouldClose)
     glEnableVertexAttribArray(0);
     window.BeginRender();
         // draw whatever vertices are currently bound
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
 
     if (window.GetKey(Keys.H))
     {
