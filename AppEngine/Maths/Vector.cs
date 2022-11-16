@@ -59,12 +59,4 @@ public struct Vector
         }
     }
     
-    public Vector DistanceTo
-    {
-        get
-        {
-            return ;
-        }
-    }
-    
 }

@@ -32,4 +32,9 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Maths.Test\Maths.Test.csproj" />
+      <ProjectReference Include="..\Maths\Maths.csproj" />
+    </ItemGroup>
+
 </Project>

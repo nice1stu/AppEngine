@@ -5,8 +5,8 @@ namespace AppEngine;
 
 public class Window
 {
-    public bool ShouldClose => Glfw.WindowShouldClose(window);
-    private GLFW.Window window;
+    public bool ShouldClose => Glfw.WindowShouldClose(_window);
+    private readonly GLFW.Window _window;
     public Window()
     {
         Glfw.Init();
@@ -17,16 +17,16 @@ public class Window
         Glfw.WindowHint(Hint.OpenglForwardCompatible, Constants.True);
         Glfw.WindowHint(Hint.Doublebuffer, Constants.True);
 
-        window = Glfw.CreateWindow(800, 600, "AppEngine", Monitor.None, GLFW.Window.None);
-        Glfw.MakeContextCurrent(window);
+        _window = Glfw.CreateWindow(800, 600, "AppEngine", Monitor.None, GLFW.Window.None);
+        Glfw.MakeContextCurrent(_window);
         Import(Glfw.GetProcAddress);
         
-        Glfw.SetKeyCallback(window, OnKeyCallback);
+        Glfw.SetKeyCallback(_window, OnKeyCallback);
     }
 
     public bool GetKey(Keys key)
     {
-        return  Glfw.GetKey(window, key) != InputState.Release;
+        return  Glfw.GetKey(_window, key) != InputState.Release;
     }
 
     public void BeginRender()
@@ -48,7 +48,7 @@ public class Window
 
     public void EndRender()
     {
-        Glfw.SwapBuffers(window);
+        Glfw.SwapBuffers(_window);
     }
     void OnKeyCallback(System.IntPtr window, Keys key, int scanCode, InputState state, ModifierKeys mods) //key events
     {
