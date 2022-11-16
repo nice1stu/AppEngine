@@ -73,9 +73,15 @@ public struct Vector
         }
     }
 
-    public Vector Normalized(Vector enemyDisplacement)
+    /*public Vector Normalized(Vector enemyDirection)
     {
         float magnitude = MathF.Sqrt((x * x) + (y * y) + (z * z));
         return new Vector (x / magnitude, y / magnitude, z / magnitude);
     }
+
+    public Vector IsUnitVector()
+    {
+        return new Vector(x, y, z);
+        
+    }*/
 }

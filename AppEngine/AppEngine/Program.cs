@@ -47,6 +47,16 @@ while (!window.ShouldClose)
             vertices[i] = vertices[i].MultiplyWith(1.01f);
         }
     }
+    else
+    {
+        if (window.GetKey(Keys.G))
+        {
+            for (int i = 0; i < vertices.Length; i++)
+            {
+                vertices[i] = vertices[i].DivideBy(1.01f);
+            }
+        }
+    }
     
     window.EndRender();
 }
