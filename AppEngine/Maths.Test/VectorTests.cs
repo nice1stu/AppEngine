@@ -115,7 +115,7 @@ public class VectorTests
         Vector enemyPosition = new Vector(9, 4, 6);
         float distance = playerPosition.DistanceTo(enemyPosition); // 10
         
-        Assert.That(magnitude, Is.EqualTo(playerPosition.magnitude));
+        Assert.That(distance, Is.EqualTo(playerPosition.magnitude));
     }
 
     [Test]
@@ -124,5 +124,7 @@ public class VectorTests
         Vector playerPosition = new Vector(3, 4, -2);
         Vector enemyPosition = new Vector(9, 4, 6);
         float distance = playerPosition.SquaredDistanceTo(enemyPosition); // 100
+                
+        Assert.That(distance, Is.EqualTo(playerPosition.SquaredDistanceTo()));
     }
 }
