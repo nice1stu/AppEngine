@@ -158,7 +158,7 @@ public class VectorTests
      float angle = Vector.AngleBetweenRad(a, b); // arccos(0.5·√2) ≈ 0.785398163
      }
      
-     /*[Test]
+     [Test]
      public void AngleBetweenDeg()
      {
      Vector a = new Vector(5, 0, 0);
@@ -166,7 +166,7 @@ public class VectorTests
      float angle = Vector.AngleBetweenDeg(a, b); // 45
      }
      
-     [Test]
+     /*[Test]
      public void Cross()
      {
      Vector right = new Vector(1, 0, 0);

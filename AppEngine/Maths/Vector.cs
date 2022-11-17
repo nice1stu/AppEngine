@@ -98,6 +98,15 @@ public struct Vector
         lengthB = MathF.Sqrt((b.x * b.x) + (b.y * b.y) + (b.z * b.z));
         return (MathF.Acos((float)((a.x * b.x) + (a.y * b.y) + (a.z * b.z) / (lengthA*lengthB) * 180/Math.PI)));
     }
-    
-    
+
+    public static float AngleBetweenDeg(Vector a, Vector b)
+    {
+        float numerator;
+        float denominatorA;
+        float denominatorB;
+        numerator = (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
+        denominatorA = ((a.x * a.x) + (a.y * a.y) + (a.z * a.z));
+        denominatorB = ((b.x * b.x) + (b.y * b.y) + (b.z * b.z));
+        return (numerator / MathF.Sqrt(denominatorA * denominatorB));
+    }
 }
