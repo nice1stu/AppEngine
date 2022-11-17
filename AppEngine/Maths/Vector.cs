@@ -73,7 +73,7 @@ public struct Vector
         }
     }
 
-    /*public Vector Normalized(Vector enemyDirection)
+    public Vector Normalized(Vector enemyDirection)
     {
         float magnitude = MathF.Sqrt((x * x) + (y * y) + (z * z));
         return new Vector (x / magnitude, y / magnitude, z / magnitude);
@@ -84,5 +84,20 @@ public struct Vector
         return new Vector(x, y, z);
         
     }
-    */
+
+    public float Dot(Vector b)
+    {
+        return (this.x * b.x) + (this.y * b.y) + (this.z * b.z);
+    }
+
+    public static float AngleBetweenRad(Vector a, Vector b)
+    {
+        float lengthA;
+        float lengthB;
+        lengthA = MathF.Sqrt((a.x * a.x) + (a.y * a.y) + (a.z * a.z));
+        lengthB = MathF.Sqrt((b.x * b.x) + (b.y * b.y) + (b.z * b.z));
+        return (MathF.Acos((float)((a.x * b.x) + (a.y * b.y) + (a.z * b.z) / (lengthA*lengthB) * 180/Math.PI)));
+    }
+    
+    
 }
