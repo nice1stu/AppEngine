@@ -31,6 +31,9 @@ while (!window.ShouldClose)
         triangle.Scale = triangle.Scale.DivideBy(1+1*deltaTime);
     if (window.GetKey(Keys.H))
         triangle.Scale = triangle.Scale.MultiplyWith(1+1*deltaTime);
+    if (window.GetKey(Keys.Q))
+        triangle.Rotation.Z += deltaTime;
+
     triangle.Position = triangle.Position.Add(movement.MultiplyWith(deltaTime));
 
     window.BeginRender();

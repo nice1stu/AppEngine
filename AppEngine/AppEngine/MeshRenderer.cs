@@ -39,7 +39,7 @@ public class MeshRenderer
     
     public unsafe void Render()
     {
-        Matrix matrix = Matrix.Translation(Position) * Matrix.Scale(Scale);
+        Matrix matrix = Matrix.Translation(Position) * Matrix.Rotation(Rotation) * Matrix.Scale(Scale);
         for (var i = 0; i < vertices.Length; i++)
         {
             _vertexBuffer[i] = matrix * vertices[i];
