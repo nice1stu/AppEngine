@@ -88,7 +88,6 @@ public record struct Vector
         {
             return true;
         }
-
         return false;
     }
 
