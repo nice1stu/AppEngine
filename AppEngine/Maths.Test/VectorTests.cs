@@ -135,12 +135,12 @@ public class VectorTests
          
          Assert.That(enemyDirection, Is.EqualTo (new Vector(0.8f, 0.0f, 0.6f)));
      }
-     /*[Test]
+     [Test]
      public void IsUnitVector()
      {
-         bool isUnitVector = new Vector(3, -1, 0).IsUnitVector; // false
+         Func<bool> isUnitVector = new Vector(3, -1, 0).IsUnitVector; // false
          isUnitVector = new Vector(-1, 0, 0).IsUnitVector; // true  
-     }*/
+     }
      
      [Test]
      public void Dot()

@@ -81,10 +81,15 @@ public record struct Vector
         return new Vector (x / magnitude, y / magnitude, z / magnitude);
     }
 
-    public Vector IsUnitVector()
+    public bool IsUnitVector()
     {
-        return new Vector(x, y, z);
-        
+        float magnitude = Magnitude;
+        if (magnitude == 1)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public float Dot(Vector b)
