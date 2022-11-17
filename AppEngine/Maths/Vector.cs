@@ -4,13 +4,13 @@ namespace Maths;
 
 public record struct Vector
 {
-    public float x, y, z;
+    public float X, Y, Z;
     
     public Vector(float x, float y, float z)
     {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.X = x;
+        this.Y = y;
+        this.Z = z;
     }
 
     public static Vector Zero
@@ -22,34 +22,34 @@ public record struct Vector
 
     public Vector Inverse()
     {
-        return new(-x, -y, -z);
+        return new(-X, -Y, -Z);
     }
 
     public Vector MultiplyWith(float k)
     {
-        return new( x*k,  y*k,  z*k);
+        return new( X*k,  Y*k,  Z*k);
     }
 
     public Vector DivideBy(float k)
     {
-        return new( x/k,  y/k,  z/k);
+        return new( X/k,  Y/k,  Z/k);
     }
 
     public Vector Add(Vector v)
     {
-        return new Vector(x + v.x, y + v.y, z + v.z);
+        return new Vector(X + v.X, Y + v.Y, Z + v.Z);
     }
     
     public Vector Subtract(Vector v)
     {
-        return new Vector(x - v.x, y - v.y, z - v.z);
+        return new Vector(X - v.X, Y - v.Y, Z - v.Z);
     }
 
     public float Magnitude
     {
         get
         {
-         return MathF.Sqrt((x * x) + (y * y) + (z * z));
+         return MathF.Sqrt((X * X) + (Y * Y) + (Z * Z));
         }
     }
     
@@ -57,28 +57,28 @@ public record struct Vector
     {
         get
         {
-            return (x * x) + (y * y) + (z * z);
+            return (X * X) + (Y * Y) + (Z * Z);
         }
     }
     
     public float DistanceTo (Vector enemyPosition)
     {
         {
-            return MathF.Sqrt(((enemyPosition.x-this.x)*(enemyPosition.x-this.x)) + ((enemyPosition.y-this.y)*(enemyPosition.y-this.y)) + ((enemyPosition.z-this.z)*(enemyPosition.z-this.z)));
+            return MathF.Sqrt(((enemyPosition.X-this.X)*(enemyPosition.X-this.X)) + ((enemyPosition.Y-this.Y)*(enemyPosition.Y-this.Y)) + ((enemyPosition.Z-this.Z)*(enemyPosition.Z-this.Z)));
         }
     }
     
     public float SquareDistanceTo (Vector enemyPosition)
     {
         {
-            return (((enemyPosition.x-this.x)*(enemyPosition.x-this.x)) + ((enemyPosition.y-this.y)*(enemyPosition.y-this.y)) + ((enemyPosition.z-this.z)*(enemyPosition.z-this.z)));
+            return (((enemyPosition.X-this.X)*(enemyPosition.X-this.X)) + ((enemyPosition.Y-this.Y)*(enemyPosition.Y-this.Y)) + ((enemyPosition.Z-this.Z)*(enemyPosition.Z-this.Z)));
         }
     }
 
     public Vector Normalized()
     {
         float magnitude = Magnitude;
-        return new Vector (x / magnitude, y / magnitude, z / magnitude);
+        return new Vector (X / magnitude, Y / magnitude, Z / magnitude);
     }
 
     public bool IsUnitVector()
@@ -93,16 +93,16 @@ public record struct Vector
 
     public float Dot(Vector b)
     {
-        return (this.x * b.x) + (this.y * b.y) + (this.z * b.z);
+        return (this.X * b.X) + (this.Y * b.Y) + (this.Z * b.Z);
     }
 
     public static float AngleBetweenRad(Vector a, Vector b)
     {
         float lengthA;
         float lengthB;
-        lengthA = MathF.Sqrt((a.x * a.x) + (a.y * a.y) + (a.z * a.z));
-        lengthB = MathF.Sqrt((b.x * b.x) + (b.y * b.y) + (b.z * b.z));
-        return (MathF.Acos((float)((a.x * b.x) + (a.y * b.y) + (a.z * b.z) / (lengthA*lengthB) * 180/Math.PI)));
+        lengthA = MathF.Sqrt((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z));
+        lengthB = MathF.Sqrt((b.X * b.X) + (b.Y * b.Y) + (b.Z * b.Z));
+        return (MathF.Acos((float)((a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z) / (lengthA*lengthB) * 180/Math.PI)));
     }
 
     public static float AngleBetweenDeg(Vector a, Vector b)
@@ -110,23 +110,23 @@ public record struct Vector
         float numerator;
         float denominatorA;
         float denominatorB;
-        numerator = (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
-        denominatorA = ((a.x * a.x) + (a.y * a.y) + (a.z * a.z));
-        denominatorB = ((b.x * b.x) + (b.y * b.y) + (b.z * b.z));
+        numerator = (a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z);
+        denominatorA = ((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z));
+        denominatorB = ((b.X * b.X) + (b.Y * b.Y) + (b.Z * b.Z));
         return (numerator / MathF.Sqrt(denominatorA * denominatorB));
     }
 
     public Vector Cross(Vector right, Vector up)
     {
-        return new Vector(((right.y * up.z) - (up.y * right.z)), ((right.x * up.z) - (up.x * right.z) * -1), ((right.x * up.y) - (up.x * right.y)));
+        return new Vector(((right.Y * up.Z) - (up.Y * right.Z)), ((right.X * up.Z) - (up.X * right.Z) * -1), ((right.X * up.Y) - (up.X * right.Y)));
     }
 
     public static Vector Max(Vector a, Vector b)
     {
         Vector result;
-        result.x = MathF.Max(a.x, b.x);
-        result.y = MathF.Max(a.y, b.y);
-        result.z = MathF.Max(a.z, b.z);
+        result.X = MathF.Max(a.X, b.X);
+        result.Y = MathF.Max(a.Y, b.Y);
+        result.Z = MathF.Max(a.Z, b.Z);
         //return new Vector(MathF.Max(a.x, b.x), MathF.Max(a.y, b.y), MathF.Max(a.z, b.z));
         return result;
     }
@@ -134,9 +134,9 @@ public record struct Vector
     public static Vector Min(Vector a, Vector b)
     {
         Vector result;
-        result.x = MathF.Min(a.x, b.x);
-        result.y = MathF.Min(a.y, b.y);
-        result.z = MathF.Min(a.z, b.z);
+        result.X = MathF.Min(a.X, b.X);
+        result.Y = MathF.Min(a.Y, b.Y);
+        result.Z = MathF.Min(a.Z, b.Z);
         return result;
     }
 }

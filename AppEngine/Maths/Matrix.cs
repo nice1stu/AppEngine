@@ -21,15 +21,15 @@ namespace Maths
 			0, 0, 0, 1);
 
 		public static Vector operator *(Matrix m, Vector v) {
-			return new Vector(m.m11 * v.x + m.m12 * v.y + m.m13 * v.z + m.m14 * 1,
-							  m.m21 * v.x + m.m22 * v.y + m.m23 * v.z + m.m24 * 1,
-							  m.m31 * v.x + m.m32 * v.y + m.m33 * v.z + m.m34 * 1);
+			return new Vector(m.m11 * v.X + m.m12 * v.Y + m.m13 * v.Z + m.m14 * 1,
+							  m.m21 * v.X + m.m22 * v.Y + m.m23 * v.Z + m.m24 * 1,
+							  m.m31 * v.X + m.m32 * v.Y + m.m33 * v.Z + m.m34 * 1);
 		}
 
 		public static Vector Transform(Matrix m, Vector v, float w = 1f) {
-			return new Vector(m.m11 * v.x + m.m12 * v.y + m.m13 * v.z + m.m14 * w,
-							  m.m21 * v.x + m.m22 * v.y + m.m23 * v.z + m.m24 * w,
-							  m.m31 * v.x + m.m32 * v.y + m.m33 * v.z + m.m34 * w);
+			return new Vector(m.m11 * v.X + m.m12 * v.Y + m.m13 * v.Z + m.m14 * w,
+							  m.m21 * v.X + m.m22 * v.Y + m.m23 * v.Z + m.m24 * w,
+							  m.m31 * v.X + m.m32 * v.Y + m.m33 * v.Z + m.m34 * w);
 		}
 		
 		public static Matrix operator *(Matrix a, Matrix b) {
@@ -57,17 +57,17 @@ namespace Maths
 
 		public static Matrix Translation(Vector translation) {
 			var result = Identity;
-			result.m14 = translation.x;
-			result.m24 = translation.y;
-			result.m34 = translation.z;
+			result.m14 = translation.X;
+			result.m24 = translation.Y;
+			result.m34 = translation.Z;
 			return result;
 		}
 
 		public static Matrix Scale(Vector scale) {
 			var result = Identity;
-			result.m11 = scale.x;
-			result.m22 = scale.y;
-			result.m33 = scale.z;
+			result.m11 = scale.X;
+			result.m22 = scale.Y;
+			result.m33 = scale.Z;
 			return result;
 		}
 
@@ -99,7 +99,7 @@ namespace Maths
 		}
 
 		public static Matrix Rotation(Vector rotation) {
-			return RotationZ(rotation.z) * RotationY(rotation.y) * RotationX(rotation.x);
+			return RotationZ(rotation.Z) * RotationY(rotation.Y) * RotationX(rotation.X);
 		}
 		
 		public static Matrix Perspective(float fov, float aspectRatio, float nearPlane, float farPlane)

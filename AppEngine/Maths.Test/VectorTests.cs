@@ -13,9 +13,9 @@ public class VectorTests
         Vector actual = new Vector(x, y, z);
 
         Vector expected = default;
-        expected.x = x;
-        expected.y = y;
-        expected.z = z;
+        expected.X = x;
+        expected.Y = y;
+        expected.Z = z;
         
         Assert.That(actual, Is.EqualTo(expected));
     }
