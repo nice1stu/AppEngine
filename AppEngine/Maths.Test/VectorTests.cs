@@ -135,12 +135,12 @@ public class VectorTests
          
          Assert.That(enemyDirection, Is.EqualTo (new Vector(0.8f, 0.0f, 0.6f)));
      }
-     [Test]
+     /*[Test]
      public void IsUnitVector()
      {
          bool isUnitVector = new Vector(3, -1, 0).IsUnitVector; // false
          isUnitVector = new Vector(-1, 0, 0).IsUnitVector; // true  
-     }
+     }*/
      
      [Test]
      public void Dot()
@@ -166,11 +166,11 @@ public class VectorTests
      float angle = Vector.AngleBetweenDeg(a, b); // 45
      }
      
-     // [Test]
-     // public void Cross()
-     // {
-     // Vector right = new Vector(1, 0, 0);
-     // Vector up = new Vector(0, 1, 0);
-     // Vector forward = right.Cross(up); // (0, 0, 1)
-     // }
+     [Test]
+     public void Cross()
+     {
+     Vector right = new Vector(1, 0, 0);
+     Vector up = new Vector(0, 1, 0);
+     Vector forward = right.Cross(right, up); // (0, 0, 1)
+     }
 }

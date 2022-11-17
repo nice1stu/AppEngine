@@ -112,7 +112,7 @@ public record struct Vector
         return (numerator / MathF.Sqrt(denominatorA * denominatorB));
     }
 
-    public static Vector Cross(Vector right, Vector up)
+    public Vector Cross(Vector right, Vector up)
     {
         return new Vector(((right.y * up.z) - (up.y * right.z)), ((right.x * up.z) - (up.x * right.z) * -1), ((right.x * up.y) - (up.x * right.y)));
     }
