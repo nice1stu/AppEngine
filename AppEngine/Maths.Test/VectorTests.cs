@@ -127,7 +127,7 @@ public class VectorTests
          Assert.That(distance, Is.EqualTo(playerPosition.SquareDistanceTo(enemyPosition)));
      }
 
-     /*[Test]
+     [Test]
      public void Normalized()
      {
          Vector enemyDisplacement = new Vector(4, 0, 3);
@@ -140,7 +140,7 @@ public class VectorTests
      {
          bool isUnitVector = new Vector(3, -1, 0).IsUnitVector; // false
          isUnitVector = new Vector(-1, 0, 0).IsUnitVector; // true  
-     }*/
+     }
      
      [Test]
      public void Dot()

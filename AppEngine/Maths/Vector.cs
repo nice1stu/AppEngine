@@ -1,4 +1,6 @@
-﻿namespace Maths;
+﻿using System.Numerics;
+
+namespace Maths;
 
 public struct Vector
 {
@@ -73,7 +75,7 @@ public struct Vector
         }
     }
 
-    public Vector Normalized(Vector enemyDirection)
+    public Vector Normalized(Vector enemyDisplacement)
     {
         float magnitude = MathF.Sqrt((x * x) + (y * y) + (z * z));
         return new Vector (x / magnitude, y / magnitude, z / magnitude);
@@ -109,4 +111,10 @@ public struct Vector
         denominatorB = ((b.x * b.x) + (b.y * b.y) + (b.z * b.z));
         return (numerator / MathF.Sqrt(denominatorA * denominatorB));
     }
+
+    public static Vector Cross(Vector right, Vector up)
+    {
+        return new Vector(((right.y * up.z) - (up.y * right.z)), ((right.x * up.z) - (up.x * right.z) * -1), ((right.x * up.y) - (up.x * right.y)));
+    }
+    
 }
