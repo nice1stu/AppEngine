@@ -27,6 +27,10 @@ while (!window.ShouldClose)
         movement.X += -1f;
     if (window.GetKey(Keys.D))
         movement.X += 1f;
+    if (window.GetKey(Keys.G))
+        triangle.Scale = triangle.Scale.DivideBy(1+1*deltaTime);
+    if (window.GetKey(Keys.H))
+        triangle.Scale = triangle.Scale.MultiplyWith(1+1*deltaTime);
     triangle.Position = triangle.Position.Add(movement.MultiplyWith(deltaTime));
 
     window.BeginRender();

@@ -27,6 +27,7 @@ public class MeshRenderer
 
     public MeshRenderer()
     {
+        Scale = new Vector(1, 1, 1);
         // create & use a cache for vertex buffer
         _vertexArrayObject = glGenVertexArray();
         glBindVertexArray(_vertexArrayObject);
@@ -38,7 +39,7 @@ public class MeshRenderer
     
     public unsafe void Render()
     {
-        Matrix matrix = Matrix.Translation(Position);
+        Matrix matrix = Matrix.Translation(Position) * Matrix.Scale(Scale);
         for (var i = 0; i < vertices.Length; i++)
         {
             _vertexBuffer[i] = matrix * vertices[i];
