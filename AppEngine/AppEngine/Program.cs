@@ -46,9 +46,30 @@ while (!window.ShouldClose)
 
     if (window.GetKey(Keys.H))
     {
+        //calculate the edge points (bounds of mesh):
+        Vector bottomLeft = vertices[0];
+        Vector topRight = vertices[0];
+        for (int i = 1; i < vertices.Length; i++)
+        {
+            bottomLeft = Vector.Min(bottomLeft, vertices[i]);
+            topRight = Vector.Max(topRight, vertices[i]);
+        }
+
+        Vector center = bottomLeft.Add(topRight).DivideBy(2);
+
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = vertices[i].Subtract(center);
+        }
+        
         for (int i = 0; i < vertices.Length; i++)
         {
             vertices[i] = vertices[i].MultiplyWith(1.01f);
+        }
+
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = vertices[i].Add(center);
         }
     }
     else if (window.GetKey(Keys.G))
