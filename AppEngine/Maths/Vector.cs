@@ -120,5 +120,23 @@ public record struct Vector
     {
         return new Vector(((right.y * up.z) - (up.y * right.z)), ((right.x * up.z) - (up.x * right.z) * -1), ((right.x * up.y) - (up.x * right.y)));
     }
-    
+
+    public static Vector Max(Vector a, Vector b)
+    {
+        Vector result;
+        result.x = MathF.Max(a.x, b.x);
+        result.y = MathF.Max(a.y, b.y);
+        result.z = MathF.Max(a.z, b.z);
+        //return new Vector(MathF.Max(a.x, b.x), MathF.Max(a.y, b.y), MathF.Max(a.z, b.z));
+        return result;
+    }
+
+    public static Vector Min(Vector a, Vector b)
+    {
+        Vector result;
+        result.x = MathF.Min(a.x, b.x);
+        result.y = MathF.Min(a.y, b.y);
+        result.z = MathF.Min(a.z, b.z);
+        return result;
+    }
 }

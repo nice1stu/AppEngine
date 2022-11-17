@@ -173,4 +173,24 @@ public class VectorTests
      Vector up = new Vector(0, 1, 0);
      Vector forward = right.Cross(right, up); // (0, 0, 1)
      }
+
+     [Test]
+
+     public void Max()
+     {
+         Vector a = new Vector(-3, 0, -0.5f);
+         Vector b = new Vector(-12f, -0.3f, 200);
+         Vector max = Vector.Max(a, b);
+         
+         Assert.That(max, Is.EqualTo(new Vector(-3, 0, 200)));
+     }
+     [Test]
+     public void Min()
+     {
+         Vector a = new Vector(-3, 0, -0.5f);
+         Vector b = new Vector(-12f, -0.3f, 200);
+         Vector min = Vector.Min(a, b);
+         
+         Assert.That(min, Is.EqualTo(new Vector(-12, -0.3f, -0.5f)));
+     }
 }
