@@ -2,7 +2,7 @@
 
 namespace Maths;
 
-public struct Vector
+public record struct Vector
 {
     public float x, y, z;
     
@@ -75,9 +75,9 @@ public struct Vector
         }
     }
 
-    public Vector Normalized(Vector enemyDisplacement)
+    public Vector Normalized()
     {
-        float magnitude = MathF.Sqrt((x * x) + (y * y) + (z * z));
+        float magnitude = Magnitude;
         return new Vector (x / magnitude, y / magnitude, z / magnitude);
     }
 

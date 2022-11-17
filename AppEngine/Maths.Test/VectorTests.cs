@@ -74,7 +74,7 @@ public class VectorTests
         Vector movement = new Vector(2, -1, 0);
         position = position.Add(movement); // (14, 2, -2)
         
-        Assert.That(movement, Is.EqualTo (new Vector(14 ,2 ,-2)));
+        Assert.That(position, Is.EqualTo (new Vector(14 ,2 ,-2)));
     }
     [Test]
     public void Subtract()
@@ -83,7 +83,7 @@ public class VectorTests
          Vector enemyPosition = new Vector(14, 1, -2);
          Vector directionToEnemy = enemyPosition.Subtract(playerPosition); // (2, -2, 0)
          
-         Assert.That(playerPosition, Is.EqualTo (new Vector(2 ,-2 ,0)));
+         Assert.That(directionToEnemy, Is.EqualTo (new Vector(2 ,-2 ,0)));
     }
     
      [Test]
@@ -131,9 +131,9 @@ public class VectorTests
      public void Normalized()
      {
          Vector enemyDisplacement = new Vector(4, 0, 3);
-         Vector enemyDirection = enemyDisplacement.Normalized; // (0.8, 0. 0.6)
+         Vector enemyDirection = enemyDisplacement.Normalized(); // (0.8, 0. 0.6)
          
-         Assert.That(enemyDirection, Is.EqualTo (0.8, 0.0, 0.6));
+         Assert.That(enemyDirection, Is.EqualTo (new Vector(0.8f, 0.0f, 0.6f)));
      }
      [Test]
      public void IsUnitVector()
@@ -166,11 +166,11 @@ public class VectorTests
      float angle = Vector.AngleBetweenDeg(a, b); // 45
      }
      
-     [Test]
-     public void Cross()
-     {
-     Vector right = new Vector(1, 0, 0);
-     Vector up = new Vector(0, 1, 0);
-     Vector forward = right.Cross(up); // (0, 0, 1)
-     }
+     // [Test]
+     // public void Cross()
+     // {
+     // Vector right = new Vector(1, 0, 0);
+     // Vector up = new Vector(0, 1, 0);
+     // Vector forward = right.Cross(up); // (0, 0, 1)
+     // }
 }
