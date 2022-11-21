@@ -13,10 +13,10 @@ public class MeshRenderer
     
     private Vertex[] vertices =
     {
-        new Vertex (new Vector(1f, 0, 0), Color.RedConst),
-        new Vertex (new Vector(0, 1f, 0), Color.GreenConst),
-        new Vertex (new Vector(0, 0, 1f), Color.BlueConst)
-    
+        new Vertex (new Vector(-.5f, -.9f, 0f), Color.RedConst),
+        new Vertex (new Vector(+.5f, -.9f, 0f), Color.GreenConst),
+        new Vertex (new Vector(0f, 0f, 0f), Color.BlueConst)
+        
         //new Vector(.5f, .9f, 0f),
         //new Vector(-.5f, .9f, 0f),
         //new Vector(0f, 0f, 0f)

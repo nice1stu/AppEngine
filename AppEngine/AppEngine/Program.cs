@@ -10,6 +10,7 @@ Window window = new Window();
 new Material();
 Material material = new Material();
 material.Use();
+Texture wall = new Texture("resources/textures/wall.jpg");
 
 MeshRenderer triangle = new MeshRenderer();
 

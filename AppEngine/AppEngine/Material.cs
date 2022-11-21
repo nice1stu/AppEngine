@@ -16,10 +16,21 @@ public class Material
             glUniform4f(colorProperty, value.Red, value.Green, value.Blue, value.Alpha);
         }
     }
+
+    public Texture Texture
+    {
+        set
+        {
+            glActiveTexture(GL_TEXTURE0);
+            value.Use();
+            int textureProperty = glGetUniformLocation(_shaderProgram, "_texture");
+            glUniform1i(textureProperty,1);
+        }
+    }
     public Material()
     {
         // create vertex shader GLSL
-        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/03-screen-vertexcolor.vert");
+        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/04-screen-texCoord-position.vert");
 
         uint vertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertexShader, vertexShaderCode);
@@ -36,7 +47,7 @@ public class Material
         }
 
         // create fragment shader (pixel shader)
-        string fragmentShaderCode = File.ReadAllText("resources/shaders/fragment/03-vertexcolor.frag");
+        string fragmentShaderCode = File.ReadAllText("resources/shaders/fragment/04-texture.frag");
 
         uint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
         glShaderSource(fragmentShader, fragmentShaderCode);
