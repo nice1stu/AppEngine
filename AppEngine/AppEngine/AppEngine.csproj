@@ -37,4 +37,10 @@
       <ProjectReference Include="..\Maths\Maths.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="resources\**\*">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
 </Project>

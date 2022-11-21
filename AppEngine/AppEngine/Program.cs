@@ -10,6 +10,7 @@ Window window = new Window();
 new Material();
 Material material = new Material();
 material.Use();
+material.color = new Color(1f, 0,0,1f);
 MeshRenderer triangle = new MeshRenderer();
 
 float lastFrameTime = (float)Glfw.Time;
@@ -32,10 +33,15 @@ while (!window.ShouldClose)
     if (window.GetKey(Keys.H))
         triangle.Scale = triangle.Scale.MultiplyWith(1+1*deltaTime);
     if (window.GetKey(Keys.Q))
-        triangle.Rotation.Z += deltaTime;
+        triangle.Rotation = triangle.Rotation.Add(new Vector(0, 0, deltaTime));
+    if (window.GetKey(Keys.E))
+        triangle.Rotation = triangle.Rotation.Subtract(new Vector(0, 0, deltaTime));
+       /* if (window.GetKey(Keys.Q))
+            triangle.Rotation.Z += deltaTime;*/
 
-    triangle.Position = triangle.Position.Add(movement.MultiplyWith(deltaTime));
+        triangle.Position = triangle.Position.Add(movement.MultiplyWith(deltaTime));
 
+    //render
     window.BeginRender();
     triangle.Render();
     window.EndRender();

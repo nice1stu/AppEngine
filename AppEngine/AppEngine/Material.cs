@@ -1,24 +1,25 @@
 using static OpenGL.Gl;
 using System;
+using System.IO;
 
 namespace AppEngine;
 
 public class Material
 {
-    private uint shaderProgram;
+    private readonly uint _shaderProgram;
+
+    public Color color
+    {
+        set
+        {
+            int colorProperty = glGetUniformLocation(_shaderProgram, "_color");
+            glUniform4f(colorProperty, value.Red, value.Green, value.Blue, value.Alpha);
+        }
+    }
     public Material()
     {
         // create vertex shader GLSL
-        const string vertexShaderCode = @"
-        #version 330 core
-
-        layout (location = 0) in vec3 position;
-
-        void main()
-        {
-            gl_Position = vec4(position.x, position.y, position.z, 1.0);
-        }
-        ";
+        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/screen.vert");
 
         uint vertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertexShader, vertexShaderCode);
@@ -35,16 +36,7 @@ public class Material
         }
 
         // create fragment shader (pixel shader)
-        const string fragmentShaderCode = @"
-        #version 330 core
-
-        out vec4 color;
-
-        void main()
-        {
-            color = vec4(0.0f, 0.0f, 1.0f, 1.0f);
-        }
-        ";
+        string fragmentShaderCode = File.ReadAllText("resources/shaders/fragment/02-color.frag");
 
         uint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
         glShaderSource(fragmentShader, fragmentShaderCode);
@@ -61,15 +53,15 @@ public class Material
         }
 
         // create & use render pipeline
-        shaderProgram = glCreateProgram();
+        _shaderProgram = glCreateProgram();
 
-        glAttachShader(shaderProgram, vertexShader);
-        glAttachShader(shaderProgram, fragmentShader);
-        glLinkProgram(shaderProgram);
+        glAttachShader(_shaderProgram, vertexShader);
+        glAttachShader(_shaderProgram, fragmentShader);
+        glLinkProgram(_shaderProgram);
     }
 
     public void Use()
     {
-        glUseProgram(shaderProgram);
+        glUseProgram(_shaderProgram);
     }
 }

@@ -7,6 +7,7 @@ public class Window
 {
     public bool ShouldClose => Glfw.WindowShouldClose(_window);
     private readonly GLFW.Window _window;
+    private readonly KeyCallback _keyCallback;
     public Window()
     {
         Glfw.Init();
@@ -20,8 +21,8 @@ public class Window
         _window = Glfw.CreateWindow(800, 600, "AppEngine", Monitor.None, GLFW.Window.None);
         Glfw.MakeContextCurrent(_window);
         Import(Glfw.GetProcAddress);
-        
-        Glfw.SetKeyCallback(_window, OnKeyCallback);
+        _keyCallback = OnKeyCallback;
+        Glfw.SetKeyCallback(_window, _keyCallback);
     }
 
     public bool GetKey(Keys key)

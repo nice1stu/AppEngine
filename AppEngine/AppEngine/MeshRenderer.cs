@@ -16,9 +16,9 @@ public class MeshRenderer
         new Vector(+.5f, -.9f, 0f),
         new Vector(0f, 0f, 0f),
     
-        new Vector(.5f, .9f, 0f),
-        new Vector(-.5f, .9f, 0f),
-        new Vector(0f, 0f, 0f)
+        //new Vector(.5f, .9f, 0f),
+        //new Vector(-.5f, .9f, 0f),
+        //new Vector(0f, 0f, 0f)
     };
 
     private uint _vertexArrayObject;
@@ -51,6 +51,6 @@ public class MeshRenderer
         }
         glVertexAttribPointer(0, 3, GL_FLOAT, false, sizeof(Vector), System.IntPtr.Zero);
         glEnableVertexAttribArray(0);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
     }
 }
