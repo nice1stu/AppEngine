@@ -8,7 +8,7 @@ public class Material
 {
     private readonly uint _shaderProgram;
 
-    public Color color
+    public Color Color
     {
         set
         {
@@ -19,7 +19,7 @@ public class Material
     public Material()
     {
         // create vertex shader GLSL
-        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/screen.vert");
+        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/03-screen-vertexcolor.vert");
 
         uint vertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertexShader, vertexShaderCode);
@@ -36,7 +36,7 @@ public class Material
         }
 
         // create fragment shader (pixel shader)
-        string fragmentShaderCode = File.ReadAllText("resources/shaders/fragment/02-color.frag");
+        string fragmentShaderCode = File.ReadAllText("resources/shaders/fragment/03-vertexcolor.frag");
 
         uint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
         glShaderSource(fragmentShader, fragmentShaderCode);

@@ -5,6 +5,9 @@ namespace AppEngine;
 public struct Color
 {
     public float Red, Green, Blue, Alpha;
+    public static Color RedConst => new Color(5, 0, 0, 1);
+    public static Color GreenConst => new Color(0, 5, 0, 1);
+    public static Color BlueConst => new Color(0, 0, 5, 1);
 
     public Color(float red, float green, float blue, float alpha)
     {
@@ -13,15 +16,15 @@ public struct Color
         Blue = blue;
         Alpha = alpha;
     }
-    public static Color FromHSV(float hue, float saturation, float value)
+    public static Color FromHsv(float hue, float saturation, float value)
     {
         int hi = Convert.ToInt32(MathF.Floor(hue / 60)) % 6;
         float f = hue / 60 - MathF.Floor(hue / 60);
 
-        int v = Convert.ToInt32(value);
-        int p = Convert.ToInt32(value * (1 - saturation));
-        int q = Convert.ToInt32(value * (1 - f * saturation));
-        int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
+        float v = value;
+        float p = value * (1 - saturation);
+        float q = value * (1 - f * saturation);
+        float t = value * (1 - (1 - f) * saturation);
 
         return hi switch
         {

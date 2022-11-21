@@ -10,7 +10,7 @@ Window window = new Window();
 new Material();
 Material material = new Material();
 material.Use();
-material.color = new Color(1f, 0,0,1f);
+
 MeshRenderer triangle = new MeshRenderer();
 
 float lastFrameTime = (float)Glfw.Time;
@@ -18,6 +18,9 @@ while (!window.ShouldClose)
 {
     float deltaTime = (float)Glfw.Time - lastFrameTime;
     lastFrameTime = (float)Glfw.Time;
+    
+    //Disco color
+    material.Color = Color.FromHsv(lastFrameTime * 60, 0.8f, 0.6f);
     
     Vector movement = Vector.Zero;
     if (window.GetKey(Keys.W))

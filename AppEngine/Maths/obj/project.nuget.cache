@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "XZ8wW692ulAuODco6wD//zDvMd+vnwDeOLzqIPKB/H9iw8OqoF6wyM7W1fxE+X5q1L68ycP/23qojqi7JMSkhQ==",
+  "dgSpecHash": "KPVWounhjHLMsPdrFVLufgby0CFtNVCpTz7OOZ7+lzTAKL9d4aLb10MosZDVYvSHXrWQQE40SNst1L20jJkJ+g==",
   "success": true,
   "projectFilePath": "C:\\Unity Projects\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\nice1\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\nice1\\.nuget\\packages\\sixlabors.imagesharp\\2.1.3\\sixlabors.imagesharp.2.1.3.nupkg.sha512",
+    "C:\\Users\\nice1\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\nice1\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
