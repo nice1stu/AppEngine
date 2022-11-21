@@ -5,9 +5,9 @@ namespace AppEngine;
 public struct Color
 {
     public float Red, Green, Blue, Alpha;
-    public static Color RedConst => new Color(5, 0, 0, 1);
-    public static Color GreenConst => new Color(0, 5, 0, 1);
-    public static Color BlueConst => new Color(0, 0, 5, 1);
+    public static Color RedConst => new Color(1, 0, 0, 1);
+    public static Color GreenConst => new Color(0, 1, 0, 1);
+    public static Color BlueConst => new Color(0, 0, 1, 1);
 
     public Color(float red, float green, float blue, float alpha)
     {
