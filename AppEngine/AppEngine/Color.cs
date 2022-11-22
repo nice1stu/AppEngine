@@ -8,6 +8,7 @@ public struct Color
     public static Color RedConst => new Color(1, 0, 0, 1);
     public static Color GreenConst => new Color(0, 1, 0, 1);
     public static Color BlueConst => new Color(0, 0, 1, 1);
+    public static Color White => new Color(1, 1, 1, 1);
 
     public Color(float red, float green, float blue, float alpha)
     {

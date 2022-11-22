@@ -17,6 +17,11 @@ public record struct Vector
     {
         get { return new Vector(0, 0, 0); }
     }
+    
+    public static Vector One
+    {
+        get { return new Vector(1, 1, 1); }
+    }
 
 
 

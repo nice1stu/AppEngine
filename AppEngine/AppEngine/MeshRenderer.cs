@@ -7,15 +7,13 @@ namespace AppEngine;
 
 public class MeshRenderer
 {
-    public Vector Position;
-    public Vector Rotation;
-    public Vector Scale;
-    
+    private readonly Material _material;
+    public Transform Transform = new Transform();
     private Vertex[] vertices =
     {
-        new Vertex (new Vector(-.5f, -.9f, 0f), Color.RedConst),
-        new Vertex (new Vector(+.5f, -.9f, 0f), Color.GreenConst),
-        new Vertex (new Vector(0f, 0f, 0f), Color.BlueConst)
+        new Vertex (new Vector(-.5f, -.9f, 0f), Color.White),
+        new Vertex (new Vector(+.5f, -.9f, 0f), Color.White),
+        new Vertex (new Vector(0f, 0f, 0f), Color.White)
         
         //new Vector(.5f, .9f, 0f),
         //new Vector(-.5f, .9f, 0f),
@@ -26,9 +24,9 @@ public class MeshRenderer
     private uint _vertexBufferObject;
 
 
-    public MeshRenderer()
+    public MeshRenderer(Material material)
     {
-        Scale = new Vector(1, 1, 1);
+        _material = material;
         // create & use a cache for vertex buffer
         _vertexArrayObject = glGenVertexArray();
         glBindVertexArray(_vertexArrayObject);
@@ -40,7 +38,7 @@ public class MeshRenderer
     
     public unsafe void Render()
     {
-        Matrix matrix = Matrix.Translation(Position) * Matrix.Rotation(Rotation) * Matrix.Scale(Scale);
+        _material.Model = Transform.Matrix;
 
             fixed(Vertex* vertex = &vertices[0])
         {
