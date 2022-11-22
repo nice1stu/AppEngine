@@ -22,9 +22,21 @@ while (!window.ShouldClose)
     
     //Disco color
     material.Color = Color.FromHsv(lastFrameTime * 60, 0.8f, 0.6f);
-    //material.Color = Color.White;
+    material.Color = Color.White;
     //material.T = lastFrameTime;
+
+    UpdateTrianglePosition(deltaTime);
     
+    //render
+    window.BeginRender();
+    triangle.Render();
+    window.EndRender();
+}
+
+Glfw.Terminate();
+
+void UpdateTrianglePosition(float deltaTime)
+{
     Vector movement = Vector.Zero;
     if (window.GetKey(Keys.W))
         movement.Y += 1f;
@@ -44,10 +56,4 @@ while (!window.ShouldClose)
         triangle.Transform.Rotation = triangle.Transform.Rotation.Subtract(new Vector(0, 0, deltaTime));
 
     triangle.Transform.Position = triangle.Transform.Position.Add(movement.MultiplyWith(deltaTime));
-
-    //render
-    window.BeginRender();
-    triangle.Render();
-    window.EndRender();
 }
-Glfw.Terminate();
