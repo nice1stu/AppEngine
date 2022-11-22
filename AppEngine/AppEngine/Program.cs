@@ -2,7 +2,7 @@
 using AppEngine;
 using GLFW;
 using Maths;
-using static OpenGL.Gl;
+//using static OpenGL.Gl;
 using Window = AppEngine.Window;
 
 Console.WriteLine("Starting engine...");
@@ -22,7 +22,7 @@ while (!window.ShouldClose)
     
     //Disco color
     material.Color = Color.FromHsv(lastFrameTime * 60, 0.8f, 0.6f);
-    material.Color = Color.White;
+    //material.Color = Color.White;
     //material.T = lastFrameTime;
     
     Vector movement = Vector.Zero;
