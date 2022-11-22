@@ -23,6 +23,8 @@ public class Window
         Import(Glfw.GetProcAddress);
         _keyCallback = OnKeyCallback;
         Glfw.SetKeyCallback(_window, _keyCallback);
+        
+        glEnable(GL_DEPTH_TEST);
     }
 
     public bool GetKey(Keys key)
@@ -44,7 +46,7 @@ public class Window
             glClearColor(.2f, .05f,.2f, 1f);
         }else
             glClearColor(0, 0,0, 1);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
     public void EndRender()

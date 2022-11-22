@@ -9,16 +9,34 @@ public class MeshRenderer
     public readonly Transform Transform = new();
     private  static readonly Vertex[] vertices =
     {
-        new Vertex(new Vector(-1, -1, 0), Color.White), // 0: bottom-left
-        new Vertex(new Vector(-1,1, 0), Color.White), // 1: top-left
-        new Vertex(new Vector(1, 1, 0f), Color.White), // 2: top-right
-        new Vertex(new Vector(1, -1, 0), Color.White), // 3: bottom-right
+        new Vertex(new Vector(-1, -1, 1), Color.White), // 0: bottom-left
+        new Vertex(new Vector(-1,1, 1), Color.White), // 1: top-left
+        new Vertex(new Vector(1, 1, 1), Color.White), // 2: top-right
+        new Vertex(new Vector(1, -1, 1), Color.White), // 3: bottom-right
+        
+        new Vertex(new Vector(-1, -1, -1), Color.White), // 0: bottom-left
+        new Vertex(new Vector(-1,1, -1), Color.White), // 1: top-left
+        new Vertex(new Vector(1, 1, -1), Color.White), // 2: top-right
+        new Vertex(new Vector(1, -1, -1), Color.White), // 3: bottom-right
     };
 
     private static readonly uint[] indices =
     {
         0, 1, 2,
-        0, 3, 2
+        0, 3, 2,
+        7, 6, 5,
+        7, 4, 5,
+     
+        0, 3, 4,
+        3, 4, 7,
+        1, 2, 6,
+        1, 5, 6,
+        
+        0, 1, 5,
+        0, 4, 5,
+        
+        2, 3, 6,
+        3, 6, 7
     };
 
     private readonly Material _material;

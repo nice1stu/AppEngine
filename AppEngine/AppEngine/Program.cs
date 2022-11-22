@@ -10,9 +10,11 @@ Window window = new Window();
 Material material = new Material();
 Texture wall = new Texture("resources/textures/wall.jpg");
 MeshRenderer triangle = new MeshRenderer(material);
-MeshRenderer triangle2 = new MeshRenderer(material);
-triangle2.Transform.Position = new Vector(1, -0.5f, 0);
-triangle2.Transform.Scale = Vector.One.DivideBy(2);
+triangle.Transform.Scale = Vector.One.DivideBy(2);
+triangle.Transform.Rotation = new Vector(-.7f, .7f, 0f);
+// MeshRenderer triangle2 = new MeshRenderer(material);
+// triangle2.Transform.Position = new Vector(-2, -2, 0);
+// triangle2.Transform.Scale = Vector.One.DivideBy(2);
 Camera camera = new Camera(material);
 
 float lastFrameTime = (float)Glfw.Time;
@@ -32,8 +34,7 @@ while (!window.ShouldClose)
     window.BeginRender();
     camera.Render();
     triangle.Render();
-    triangle2.Render();
-    //...
+    //triangle2.Render();
     window.EndRender();
 }
 
