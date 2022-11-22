@@ -13,6 +13,7 @@ material.Use();
 Texture wall = new Texture("resources/textures/wall.jpg");
 
 MeshRenderer triangle = new MeshRenderer(material);
+Camera camera = new Camera(material);
 
 float lastFrameTime = (float)Glfw.Time;
 while (!window.ShouldClose)
@@ -25,17 +26,18 @@ while (!window.ShouldClose)
     material.Color = Color.White;
     //material.T = lastFrameTime;
 
-    UpdateTrianglePosition(deltaTime);
+    UpdateTrianglePosition(camera.Transform, deltaTime);
     
     //render
     window.BeginRender();
+    camera.Render();
     triangle.Render();
     window.EndRender();
 }
 
 Glfw.Terminate();
 
-void UpdateTrianglePosition(float deltaTime)
+void UpdateTrianglePosition(Transform transform,float deltaTime)
 {
     Vector movement = Vector.Zero;
     if (window.GetKey(Keys.W))
@@ -47,13 +49,13 @@ void UpdateTrianglePosition(float deltaTime)
     if (window.GetKey(Keys.D))
         movement.X += 1f;
     if (window.GetKey(Keys.G))
-        triangle.Transform.Scale = triangle.Transform.Scale.DivideBy(1+1*deltaTime);
+        transform.Scale = transform.Scale.DivideBy(1+1*deltaTime);
     if (window.GetKey(Keys.H))
-        triangle.Transform.Scale = triangle.Transform.Scale.MultiplyWith(1+1*deltaTime);
+        transform.Scale = transform.Scale.MultiplyWith(1+1*deltaTime);
     if (window.GetKey(Keys.Q))
-        triangle.Transform.Rotation = triangle.Transform.Rotation.Add(new Vector(0, 0, deltaTime));
+        transform.Rotation = transform.Rotation.Add(new Vector(0, 0, deltaTime));
     if (window.GetKey(Keys.E))
-        triangle.Transform.Rotation = triangle.Transform.Rotation.Subtract(new Vector(0, 0, deltaTime));
+        transform.Rotation = transform.Rotation.Subtract(new Vector(0, 0, deltaTime));
 
     triangle.Transform.Position = triangle.Transform.Position.Add(movement.MultiplyWith(deltaTime));
 }

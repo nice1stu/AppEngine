@@ -39,8 +39,8 @@ public class MeshRenderer
     public unsafe void Render()
     {
         _material.Model = Transform.Matrix;
-
-            fixed(Vertex* vertex = &vertices[0])
+        glDrawArrays(GL_TRIANGLES, 0, vertices.Length);
+        fixed(Vertex* vertex = &vertices[0])
         {
             // the c++ to copy 9 flats from the address of any 
             glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.Length, vertex, GL_STATIC_DRAW);

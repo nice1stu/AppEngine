@@ -26,6 +26,15 @@ public class Material
             glUniformMatrix4fv(matrixProperty, 1, true, &value.m11);
         }
     }
+    
+    public unsafe Matrix View
+    {
+        set
+        {
+            int matrixProperty = glGetUniformLocation(_shaderProgram, "_view");
+            glUniformMatrix4fv(matrixProperty, 1, true, &value.m11);
+        }
+    }
 
     public Texture Texture
     {
@@ -40,7 +49,7 @@ public class Material
     public Material()
     {
         // create vertex shader GLSL
-        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/05-world-texCoord-position.vert");
+        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/06-camera-texCoord-position.vert");
 
         uint vertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertexShader, vertexShaderCode);
