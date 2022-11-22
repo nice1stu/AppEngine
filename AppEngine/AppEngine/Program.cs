@@ -32,6 +32,8 @@ while (!window.ShouldClose)
     window.BeginRender();
     camera.Render();
     triangle.Render();
+    //triangle2.Render()
+    //...
     window.EndRender();
 }
 
@@ -57,5 +59,5 @@ void UpdateTrianglePosition(Transform transform,float deltaTime)
     if (window.GetKey(Keys.E))
         transform.Rotation = transform.Rotation.Subtract(new Vector(0, 0, deltaTime));
 
-    triangle.Transform.Position = triangle.Transform.Position.Add(movement.MultiplyWith(deltaTime));
+    transform.Position = transform.Position.Add(movement.MultiplyWith(deltaTime));
 }

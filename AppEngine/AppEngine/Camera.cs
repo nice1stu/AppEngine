@@ -1,8 +1,3 @@
-using System;
-using System.Runtime.InteropServices;
-using Maths;
-using  static OpenGL.Gl;
-
 namespace AppEngine;
 
 public class Camera
@@ -17,6 +12,6 @@ public class Camera
 
     public void Render()
     {
-        _material.View = Transform.Matrix;
+        _material.View = Transform.Matrix.Invert();
     }
 }
