@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace Maths;
+﻿namespace Maths;
 
 public record struct Vector
 {

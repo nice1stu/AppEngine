@@ -7,12 +7,12 @@ using Window = AppEngine.Window;
 
 Console.WriteLine("Starting engine...");
 Window window = new Window();
-new Material();
 Material material = new Material();
-material.Use();
 Texture wall = new Texture("resources/textures/wall.jpg");
-
 MeshRenderer triangle = new MeshRenderer(material);
+MeshRenderer triangle2 = new MeshRenderer(material);
+triangle2.Transform.Position = new Vector(1, -0.5f, 0);
+triangle2.Transform.Scale = Vector.One.DivideBy(2);
 Camera camera = new Camera(material);
 
 float lastFrameTime = (float)Glfw.Time;
@@ -32,7 +32,7 @@ while (!window.ShouldClose)
     window.BeginRender();
     camera.Render();
     triangle.Render();
-    //triangle2.Render()
+    triangle2.Render();
     //...
     window.EndRender();
 }
