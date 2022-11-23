@@ -78,7 +78,7 @@ public record struct Vector
         }
     }
 
-    public Vector Normalized()
+    public Vector Normalized() // vector / magnitude
     {
         float magnitude = Magnitude;
         return new Vector (X / magnitude, Y / magnitude, Z / magnitude);
@@ -94,7 +94,7 @@ public record struct Vector
         return false;
     }
 
-    public float Dot(Vector b)
+    public float Dot(Vector b) // scaler
     {
         return (this.X * b.X) + (this.Y * b.Y) + (this.Z * b.Z);
     }
@@ -103,21 +103,21 @@ public record struct Vector
     {
         float lengthA;
         float lengthB;
-        lengthA = MathF.Sqrt((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z));
-        lengthB = MathF.Sqrt((b.X * b.X) + (b.Y * b.Y) + (b.Z * b.Z));
+        lengthA = MathF.Sqrt((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z)); // mag a
+        lengthB = MathF.Sqrt((b.X * b.X) + (b.Y * b.Y) + (b.Z * b.Z)); // mag b
         return (MathF.Acos((float)((a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z) / (lengthA*lengthB) * 180/Math.PI)));
-    }
+    } // acos dot a & b / (mag a * mag b) * 180/pi
 
     public static float AngleBetweenDeg(Vector a, Vector b)
     {
         float numerator;
         float denominatorA;
         float denominatorB;
-        numerator = (a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z);
-        denominatorA = ((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z));
-        denominatorB = ((b.X * b.X) + (b.Y * b.Y) + (b.Z * b.Z));
+        numerator = (a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z); //dot a & b
+        denominatorA = ((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z)); //sqmag a
+        denominatorB = ((b.X * b.X) + (b.Y * b.Y) + (b.Z * b.Z)); //sqmag b
         return (numerator / MathF.Sqrt(denominatorA * denominatorB));
-    }
+    } // dot a & b / mag a & b
 
     public Vector Cross(Vector right, Vector up)
     {
