@@ -23,6 +23,11 @@ public class MeshRenderer
         new Vertex(new Vector(0.5f, 0.5f, 0.5f), Color.White, 1f, 0f), // 9: top-right
         new Vertex(new Vector(0.5f,0.5f, -0.5f), Color.White, 1f,1f), // 10: top-right back
         new Vertex(new Vector(-0.5f, 0.5f, -0.5f), Color.White, 0f, 1f), // 11: top-left back
+        
+        new Vertex(new Vector(-0.5f,-0.5f, 0.5f), Color.White, 0f,0f), // 12: bottom-left
+        new Vertex(new Vector(0.5f, -0.5f, 0.5f), Color.White, 1f, 0f), // 13: bottom-right
+        new Vertex(new Vector(0.5f,-0.5f, -0.5f), Color.White, 1f,1f), // 14: bottom-right back
+        new Vertex(new Vector(-0.5f, -0.5f, -0.5f), Color.White, 0f, 1f), // 15: bottom-left back
     };
 
     private static readonly uint[] indices =
@@ -34,8 +39,8 @@ public class MeshRenderer
         7, 6, 5,
         7, 4, 5,
         //bottom
-        0, 3, 4,
-        3, 4, 7,
+        12,13,14,
+        12,15,14,
         //top
         11, 8, 9,
         11, 10, 9,
