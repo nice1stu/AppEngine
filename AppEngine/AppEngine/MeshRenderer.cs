@@ -9,15 +9,15 @@ public class MeshRenderer
     public readonly Transform Transform = new();
     private  static readonly Vertex[] vertices =
     {
-        new Vertex(new Vector(-0.5f, -0.5f, 0.5f), Color.White), // 0: bottom-left
-        new Vertex(new Vector(-0.5f,0.5f, 0.5f), Color.White), // 1: top-left
-        new Vertex(new Vector(0.5f, 0.5f, 0.5f), Color.White), // 2: top-right
-        new Vertex(new Vector(0.5f, -0.5f, 0.5f), Color.White), // 3: bottom-right
+        new Vertex(new Vector(-0.5f, -0.5f, 0.5f), Color.White, 0f,0f), // 0: bottom-left
+        new Vertex(new Vector(-0.5f,0.5f, 0.5f), Color.White, 0f,1f), // 1: top-left
+        new Vertex(new Vector(0.5f, 0.5f, 0.5f), Color.White, 1f, 1f), // 2: top-right
+        new Vertex(new Vector(0.5f, -0.5f, 0.5f), Color.White, 1f ,0f), // 3: bottom-right
         
-        new Vertex(new Vector(-0.5f, -0.5f, -0.5f), Color.White), // 0: bottom-left
-        new Vertex(new Vector(-0.5f,0.5f, -0.5f), Color.White), // 1: top-left
-        new Vertex(new Vector(0.5f, 0.5f, -0.5f), Color.White), // 2: top-right
-        new Vertex(new Vector(0.5f, -0.5f, -0.5f), Color.White), // 3: bottom-right
+        new Vertex(new Vector(-0.5f, -0.5f, -0.5f), Color.White, 0f,0f), // 0: bottom-left
+        new Vertex(new Vector(-0.5f,0.5f, -0.5f), Color.White, 0f,1f), // 1: top-left
+        new Vertex(new Vector(0.5f, 0.5f, -0.5f), Color.White, 1f, 1f), // 2: top-right
+        new Vertex(new Vector(0.5f, -0.5f, -0.5f), Color.White, 1f ,0f), // 3: bottom-right
     };
 
     private static readonly uint[] indices =
@@ -61,8 +61,10 @@ public class MeshRenderer
     {
         glVertexAttribPointer(0, 3, GL_FLOAT, false, sizeof(Vertex), System.IntPtr.Zero);
         glVertexAttribPointer(1, 4, GL_FLOAT, false, sizeof(Vertex), Marshal.OffsetOf<Vertex>(nameof(Vertex.Color)));
+        glVertexAttribPointer(2, 2, GL_FLOAT, false, sizeof(Vertex), Marshal.OffsetOf<Vertex>(nameof(Vertex.U)));
         glEnableVertexAttribArray(0);
         glEnableVertexAttribArray(1);
+        glEnableVertexAttribArray(2);
     }
 
     private unsafe void CreateElementBuffer()

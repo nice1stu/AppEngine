@@ -42,6 +42,7 @@ public class Texture
         using MemoryHandle pinHandle = memory.Pin();
         void* ptr = pinHandle.Pointer;
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image.Width, image.Height, 0, GL_RGB, GL_UNSIGNED_BYTE, ptr);
+        //glGetTexParameteri(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
 

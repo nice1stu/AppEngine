@@ -49,7 +49,7 @@ public class Material
     public Material()
     {
         // create vertex shader GLSL
-        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/06-camera-texCoord-position.vert");
+        string vertexShaderCode = File.ReadAllText("resources/shaders/vertex/07-camera-uv-position.vert");
 
         uint vertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertexShader, vertexShaderCode);
