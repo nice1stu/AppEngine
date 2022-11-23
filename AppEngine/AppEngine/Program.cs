@@ -8,7 +8,7 @@ using Window = AppEngine.Window;
 Console.WriteLine("Starting engine...");
 Window window = new Window();
 Material material = new Material();
-Texture wall = new Texture("resources/textures/wall.jpg");
+Texture wall = new Texture("resources/textures/Gamer.jpg");
 MeshRenderer triangle = new MeshRenderer(material);
 triangle.Transform.Scale = Vector.One.DivideBy(2);
 triangle.Transform.Rotation = new Vector(-.7f, .7f, 0f);
@@ -26,6 +26,7 @@ while (!window.ShouldClose)
     //Disco color
     material.Color = Color.FromHsv(lastFrameTime * 60, 0.8f, 0.6f);
     material.Color = Color.White;
+    triangle.Transform.Rotation = triangle.Transform.Rotation.Add(new Vector(deltaTime * 0.5f, deltaTime, 0f));
     //material.T = lastFrameTime;
 
     UpdateTrianglePosition(camera.Transform, deltaTime);

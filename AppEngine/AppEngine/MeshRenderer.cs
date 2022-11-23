@@ -9,15 +9,15 @@ public class MeshRenderer
     public readonly Transform Transform = new();
     private  static readonly Vertex[] vertices =
     {
-        new Vertex(new Vector(-1, -1, 1), Color.White), // 0: bottom-left
-        new Vertex(new Vector(-1,1, 1), Color.White), // 1: top-left
-        new Vertex(new Vector(1, 1, 1), Color.White), // 2: top-right
-        new Vertex(new Vector(1, -1, 1), Color.White), // 3: bottom-right
+        new Vertex(new Vector(-0.5f, -0.5f, 0.5f), Color.White), // 0: bottom-left
+        new Vertex(new Vector(-0.5f,0.5f, 0.5f), Color.White), // 1: top-left
+        new Vertex(new Vector(0.5f, 0.5f, 0.5f), Color.White), // 2: top-right
+        new Vertex(new Vector(0.5f, -0.5f, 0.5f), Color.White), // 3: bottom-right
         
-        new Vertex(new Vector(-1, -1, -1), Color.White), // 0: bottom-left
-        new Vertex(new Vector(-1,1, -1), Color.White), // 1: top-left
-        new Vertex(new Vector(1, 1, -1), Color.White), // 2: top-right
-        new Vertex(new Vector(1, -1, -1), Color.White), // 3: bottom-right
+        new Vertex(new Vector(-0.5f, -0.5f, -0.5f), Color.White), // 0: bottom-left
+        new Vertex(new Vector(-0.5f,0.5f, -0.5f), Color.White), // 1: top-left
+        new Vertex(new Vector(0.5f, 0.5f, -0.5f), Color.White), // 2: top-right
+        new Vertex(new Vector(0.5f, -0.5f, -0.5f), Color.White), // 3: bottom-right
     };
 
     private static readonly uint[] indices =
@@ -38,7 +38,7 @@ public class MeshRenderer
         2, 3, 6,
         3, 6, 7
     };
-
+        
     private readonly Material _material;
     private uint _vertexArrayObject;
     private uint _vertexBufferObject;
@@ -53,7 +53,7 @@ public class MeshRenderer
         CreateVertexBuffer();
         // the element buffer holds all vertex indices on the GPU
         CreateElementBuffer();
-        // the vertex attributes tell the Vertex Shader, in which order the attributes like Position, Color, ... arrive
+               // the vertex attributes tell the Vertex Shader, in which order the attributes like Position, Color, ... arrive
         ConfigureVertexAttributes();
     }
 

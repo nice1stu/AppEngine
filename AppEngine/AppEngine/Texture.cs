@@ -29,7 +29,7 @@ public class Texture
         customConfig.PreferContiguousImageBuffers = true;
         
         using Image<Rgb24> image = Image.Load<Rgb24>(customConfig, texturePath);
-        image.Mutate(context => context.Flip(FlipMode.Vertical));
+        image.Mutate(context => context.Flip(FlipMode.Vertical).Resize(512,512));
         textureObject = glGenTexture();
         glBindTexture(GL_TEXTURE_2D, textureObject);
         
