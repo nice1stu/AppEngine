@@ -64,7 +64,7 @@ public record struct Vector
         }
     }
     
-    public float DistanceTo (Vector enemyPosition)
+    public float DistanceTo (Vector enemyPosition) //mag a & b
     {
         {
             return MathF.Sqrt(((enemyPosition.X-this.X)*(enemyPosition.X-this.X)) + ((enemyPosition.Y-this.Y)*(enemyPosition.Y-this.Y)) + ((enemyPosition.Z-this.Z)*(enemyPosition.Z-this.Z)));
