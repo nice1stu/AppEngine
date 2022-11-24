@@ -45,6 +45,8 @@ public class Window
     {
         // update input
         Glfw.PollEvents();
+        Glfw.GetWindowSize(_window, out int width, out int height);
+        glViewport(0,0, width, height);
         bool isSpacePressed = GetKey(Keys.Space);
     
         // update your game
