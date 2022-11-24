@@ -102,17 +102,41 @@ namespace Maths
 			return RotationZ(rotation.Z) * RotationY(rotation.Y) * RotationX(rotation.X);
 		}
 		
-		public static Matrix Perspective(float fov, float aspectRatio, float nearPlane, float farPlane)
+		public static Matrix Perspective(float fieldOfView, float aspectRatio, float nearPlaneDistance, float farPlaneDistance)
 		{
-			float yScale = 1.0f / MathF.Tan(fov * 0.5f);
-			float xScale = yScale / aspectRatio;
-			float Q = farPlane / (farPlane - nearPlane);
+			if (fieldOfView <= 0.0f || fieldOfView >= Math.PI)
+				throw new ArgumentOutOfRangeException("fieldOfView");
 
-			return new Matrix(xScale, 0.0f, 0.0f, 0.0f,
-					0.0f, yScale, 0.0f, 0.0f,
-					0.0f, 0.0f, Q, Q * nearPlane,
-					0.0f, 0f, -1f, 0.0f);
+			if (nearPlaneDistance <= 0.0f)
+				throw new ArgumentOutOfRangeException("nearPlaneDistance");
+
+			if (farPlaneDistance <= 0.0f)
+				throw new ArgumentOutOfRangeException("farPlaneDistance");
+
+			if (nearPlaneDistance >= farPlaneDistance)
+				throw new ArgumentOutOfRangeException("nearPlaneDistance");
+
+			float tanHalfOff = (float)Math.Tan(fieldOfView * 0.5f);
+			float zRange = farPlaneDistance - nearPlaneDistance;
+
+			Matrix result;
+
+			result.m11 = 1.0f/(aspectRatio*tanHalfOff);
+			result.m12 = result.m13 = result.m14 = 0.0f;
+
+			result.m22 = 1.0f/tanHalfOff;
+			result.m21 = result.m23 = result.m24 = 0.0f;
+
+			result.m31 = result.m32 = 0.0f;
+			result.m33 = -(farPlaneDistance+nearPlaneDistance) / zRange;
+			result.m34 = -1.0f;
+
+			result.m41 = result.m42 = result.m44 = 0.0f;
+			result.m43 = -2*nearPlaneDistance * farPlaneDistance / zRange;
+
+			return result;
 		}
+		
 		public Matrix Invert()
         {
             float a = m11, b = m21, c = m31, d = m41;

@@ -41,7 +41,7 @@ public class Material
         set
         {
             int matrixProperty = glGetUniformLocation(_shaderProgram, "_projection");
-            glUniformMatrix4fv(matrixProperty, 1, true, &value.m11);
+            glUniformMatrix4fv(matrixProperty, 1, false, &value.m11);
         }
     }
 

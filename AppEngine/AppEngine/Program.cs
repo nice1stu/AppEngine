@@ -10,7 +10,6 @@ Window window = new Window();
 Material material = new Material();
 Texture wall = new Texture("resources/textures/Gamer.jpg");
 MeshRenderer triangle = new MeshRenderer(material);
-triangle.Transform.Scale = Vector.One.DivideBy(2);
 triangle.Transform.Rotation = new Vector(-.7f, .7f, 0f);
 // MeshRenderer triangle2 = new MeshRenderer(material);
 // triangle2.Transform.Position = new Vector(-2, -2, 0);
