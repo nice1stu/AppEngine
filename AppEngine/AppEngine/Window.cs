@@ -1,3 +1,4 @@
+using System.Xml.Linq;
 using GLFW;
 using static OpenGL.Gl;
 
@@ -33,12 +34,21 @@ public class Window
         _keyCallback = OnKeyCallback;
         Glfw.SetKeyCallback(_window, _keyCallback);
         
+        Glfw.SetInputMode(_window, InputMode.Cursor,(int)CursorMode.Disabled);
+        
         glEnable(GL_DEPTH_TEST);
     }
 
     public bool GetKey(Keys key)
     {
         return  Glfw.GetKey(_window, key) != InputState.Release;
+    }
+
+    public void GetCursorPosition(out float x, out float y)
+    {
+        Glfw.GetCursorPosition(_window, out double xd, out double yd);
+        x = (float)xd;
+        y = (float)yd;
     }
 
     public void BeginRender()

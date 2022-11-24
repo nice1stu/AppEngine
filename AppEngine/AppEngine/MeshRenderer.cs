@@ -6,6 +6,7 @@ namespace AppEngine;
 
 public class MeshRenderer
 {
+    public Texture Texture;
     public readonly Transform Transform = new();
     private  static readonly Vertex[] vertices =
     {
@@ -110,9 +111,11 @@ public class MeshRenderer
 
     public unsafe void Render()
     {
+        Texture?.Use();
         _material.Use();
         _material.Model = Transform.Matrix;
         //draw whatever vertices are currently bound
+        glBindVertexArray(_vertexArrayObject);
         glDrawElements(GL_TRIANGLES, indices.Length, GL_UNSIGNED_INT, null);
     }
     

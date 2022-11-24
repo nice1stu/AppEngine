@@ -10,4 +10,9 @@ public class Transform
     public Vector Scale = Vector.One;
     public Matrix Matrix => Matrix.Translation(Position) * Matrix.Rotation(Rotation) * Matrix.Scale(Scale);
     
+    public void MoveLocal(Vector vector)
+    {
+        Position = Position.Add(Maths.Matrix.Transform(Matrix, vector, 0f));
+    }
+    
 }
