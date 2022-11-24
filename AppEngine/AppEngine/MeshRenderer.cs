@@ -1,5 +1,4 @@
 using System.Runtime.InteropServices;
-using Maths;
 using static OpenGL.Gl;
 
 namespace AppEngine;
