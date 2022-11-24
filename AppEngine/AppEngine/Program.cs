@@ -15,7 +15,8 @@ triangle.Transform.Rotation = new Vector(-.7f, .7f, 0f);
 // MeshRenderer triangle2 = new MeshRenderer(material);
 // triangle2.Transform.Position = new Vector(-2, -2, 0);
 // triangle2.Transform.Scale = Vector.One.DivideBy(2);
-Camera camera = new Camera(material);
+Camera camera = new Camera(material, window);
+camera.Transform.Position = new Vector(0, 0, 3);
 
 float lastFrameTime = (float)Glfw.Time;
 while (!window.ShouldClose)

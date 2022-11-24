@@ -6,6 +6,15 @@ namespace AppEngine;
 public class Window
 {
     public bool ShouldClose => Glfw.WindowShouldClose(_window);
+
+    public float AspectRatio
+    {
+        get
+        {
+            Glfw.GetWindowSize(_window, out int width, out int height);
+            return (float) width / height;
+        }
+    }
     private readonly GLFW.Window _window;
     private readonly KeyCallback _keyCallback;
     public Window()

@@ -143,7 +143,9 @@ namespace Maths
             }
 
             float invDet = 1.0f / det;
+            
             Matrix result;
+            
             result.m11 = a11 * invDet;
             result.m12 = a12 * invDet;
             result.m13 = a13 * invDet;
