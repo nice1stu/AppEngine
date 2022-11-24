@@ -1,5 +1,6 @@
 ﻿using System;
 using AppEngine;
+using AppEngine.Mesh;
 using GLFW;
 using Maths;
 //using static OpenGL.Gl;
@@ -10,12 +11,12 @@ Window window = new Window();
 Material material = new Material();
 Texture Gamer = new Texture("resources/textures/Gamer.jpg");
 Texture wall = new Texture("resources/textures/wall.jpg");
-MeshRenderer box1 = new MeshRenderer(material);
+MeshRenderer box1 = new MeshRenderer(new BoxMesh(), material);
 box1.Texture = wall;
 box1.Transform.Scale = Vector.One.DivideBy(2);
 box1.Transform.Rotation = new Vector(-.7f, .7f, 0f);
 
-MeshRenderer box2 = new MeshRenderer(material);
+MeshRenderer box2 = new MeshRenderer(new BoxMesh(), material);
 box2.Texture = Gamer;
 box2.Transform.Position = new Vector(-2, -2, 0);
 box2.Transform.Scale = Vector.One.DivideBy(2);

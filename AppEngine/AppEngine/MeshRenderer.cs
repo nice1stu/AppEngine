@@ -8,58 +8,17 @@ public class MeshRenderer
 {
     public Texture Texture;
     public readonly Transform Transform = new();
-    private  static readonly Vertex[] vertices =
-    {
-        new Vertex(new Vector(-0.5f, -0.5f, 0.5f), Color.White, 0f,0f), // 0: bottom-left
-        new Vertex(new Vector(-0.5f,0.5f, 0.5f), Color.White, 0f,1f), // 1: top-left
-        new Vertex(new Vector(0.5f, 0.5f, 0.5f), Color.White, 1f, 1f), // 2: top-right
-        new Vertex(new Vector(0.5f, -0.5f, 0.5f), Color.White, 1f ,0f), // 3: bottom-right
-        
-        new Vertex(new Vector(-0.5f, -0.5f, -0.5f), Color.White, 1f,0f), // 4: bottom-left
-        new Vertex(new Vector(-0.5f,0.5f, -0.5f), Color.White, 1f,1f), // 5: top-left
-        new Vertex(new Vector(0.5f, 0.5f, -0.5f), Color.White, 0f, 1f), // 6: top-right
-        new Vertex(new Vector(0.5f, -0.5f, -0.5f), Color.White, 0f ,0f), // 7: bottom-right
-        
-        new Vertex(new Vector(-0.5f,0.5f, 0.5f), Color.White, 0f,0f), // 8: top-left
-        new Vertex(new Vector(0.5f, 0.5f, 0.5f), Color.White, 1f, 0f), // 9: top-right
-        new Vertex(new Vector(0.5f,0.5f, -0.5f), Color.White, 1f,1f), // 10: top-right back
-        new Vertex(new Vector(-0.5f, 0.5f, -0.5f), Color.White, 0f, 1f), // 11: top-left back
-        
-        new Vertex(new Vector(-0.5f,-0.5f, 0.5f), Color.White, 0f,0f), // 12: bottom-left
-        new Vertex(new Vector(0.5f, -0.5f, 0.5f), Color.White, 1f, 0f), // 13: bottom-right
-        new Vertex(new Vector(0.5f,-0.5f, -0.5f), Color.White, 1f,1f), // 14: bottom-right back
-        new Vertex(new Vector(-0.5f, -0.5f, -0.5f), Color.White, 0f, 1f), // 15: bottom-left back
-    };
 
-    private static readonly uint[] indices =
-    {
-        //front
-        0, 1, 2,
-        0, 3, 2,
-        //back
-        7, 6, 5,
-        7, 4, 5,
-        //bottom
-        12,13,14,
-        12,15,14,
-        //top
-        11, 8, 9,
-        11, 10, 9,
-        //right
-        0, 1, 5,
-        0, 4, 5,
-        //side
-        2, 3, 6,
-        3, 6, 7
-    };
-        
+
+    private readonly Mesh.Mesh _mesh;
     private readonly Material _material;
     private uint _vertexArrayObject;
     private uint _vertexBufferObject;
     private uint _elementBufferObject;
 
-    public MeshRenderer(Material material)
+    public MeshRenderer(Mesh.Mesh mesh, Material material)
     {
+        _mesh = mesh;
         _material = material;
         // the vertex array stores the following configuration and buffers
         CreateVertexArray();
@@ -85,10 +44,10 @@ public class MeshRenderer
     {
         _elementBufferObject = glGenBuffer();
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _elementBufferObject);
-        fixed (uint* index = &indices[0])
+        fixed (uint* index = &_mesh.Indices[0])
         {
             // tell c++ to copy 9 floats from the address of the array to the buffer  bound above
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * indices.Length, index, GL_STATIC_DRAW);
+            glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * _mesh.Indices.Length, index, GL_STATIC_DRAW);
         }
     }
 
@@ -96,10 +55,10 @@ public class MeshRenderer
     {
         _vertexBufferObject = glGenBuffer();
         glBindBuffer(GL_ARRAY_BUFFER, _vertexBufferObject);
-        fixed (Vertex* vertex = &vertices[0])
+        fixed (Vertex* vertex = &_mesh.Vertices[0])
         {
             // tell c++ to copy 9 floats from the address of the array to the buffer  bound above
-            glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.Length, vertex, GL_STATIC_DRAW);
+            glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _mesh.Vertices.Length, vertex, GL_STATIC_DRAW);
         }
     }
 
@@ -116,7 +75,7 @@ public class MeshRenderer
         _material.Model = Transform.Matrix;
         //draw whatever vertices are currently bound
         glBindVertexArray(_vertexArrayObject);
-        glDrawElements(GL_TRIANGLES, indices.Length, GL_UNSIGNED_INT, null);
+        glDrawElements(GL_TRIANGLES, _mesh.Indices.Length, GL_UNSIGNED_INT, null);
     }
     
 }

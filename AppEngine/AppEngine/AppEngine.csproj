@@ -31,6 +31,7 @@
       <None Update="libglfw.dylib">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+      <None Remove="resources\Mesh\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -42,10 +43,19 @@
         <Content Include="resources\**\*">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Remove="resources\Mesh\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="resources\textures" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="resources\Mesh\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="resources\Mesh\**" />
     </ItemGroup>
 
 </Project>
