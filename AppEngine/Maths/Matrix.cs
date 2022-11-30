@@ -206,5 +206,22 @@ namespace Maths
 
             return result;
         }
+		public static Matrix FromBaseVectors(Vector xAxis, Vector yAxis, Vector zAxis)
+		{
+			Matrix result = Identity;
+			result.m11 = xAxis.X;
+			result.m21 = xAxis.Y;
+			result.m31 = xAxis.Z;
+    
+			result.m12 = yAxis.X;
+			result.m22 = yAxis.Y;
+			result.m32 = yAxis.Z;
+    
+			result.m13 = zAxis.X;
+			result.m23 = zAxis.Y;
+			result.m33 = zAxis.Z;
+
+			return result;
+		}
 	}
 }
