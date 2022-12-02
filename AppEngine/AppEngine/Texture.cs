@@ -9,12 +9,9 @@ namespace AppEngine;
 
 public class Texture
 {
-    /// <summary>
     /// Stores a reference to the GL Texture Object
-    /// </summary>
     private uint textureObject;
     
-    /// <summary>
     /// Prepares a Texture for rendering with OpenGL:
     /// - loads the texture to Memory
     /// - creates a GL Texture object
@@ -42,14 +39,11 @@ public class Texture
         using MemoryHandle pinHandle = memory.Pin();
         void* ptr = pinHandle.Pointer;
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image.Width, image.Height, 0, GL_RGB, GL_UNSIGNED_BYTE, ptr);
-        //glGetTexParameteri(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
-
-    /// <summary>
+    
     /// Binds the texture to the active GL Texture ren.
     /// Don't forget to use `glActiveTexture(GL_TEXTURE0)` before.
-    /// </summary>
     public void Use()
     {
         glBindTexture(GL_TEXTURE_2D, textureObject);

@@ -45,7 +45,7 @@ public class MeshRenderer
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _elementBufferObject);
         fixed (uint* index = &_mesh.Indices[0])
         {
-            // tell c++ to copy 9 floats from the address of the array to the buffer  bound above
+            // tell c# to copy 9 floats from the address of the array to the buffer  bound above
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * _mesh.Indices.Length, index, GL_STATIC_DRAW);
         }
     }
@@ -56,7 +56,7 @@ public class MeshRenderer
         glBindBuffer(GL_ARRAY_BUFFER, _vertexBufferObject);
         fixed (Vertex* vertex = &_mesh.Vertices[0])
         {
-            // tell c++ to copy 9 floats from the address of the array to the buffer  bound above
+            // tell c# to copy 9 floats from the address of the array to the buffer  bound above
             glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _mesh.Vertices.Length, vertex, GL_STATIC_DRAW);
         }
     }

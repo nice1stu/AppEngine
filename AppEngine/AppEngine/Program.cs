@@ -3,21 +3,22 @@ using AppEngine;
 using AppEngine.Mesh;
 using GLFW;
 using Maths;
-//using static OpenGL.Gl;
+
 using Window = AppEngine.Window;
 
 Console.WriteLine("Starting engine...");
 Window window = new Window();
 Material material = new Material();
-Texture Gamer = new Texture("resources/textures/Gamer.jpg");
 Texture wall = new Texture("resources/textures/wall.jpg");
+Texture Gamer = new Texture("resources/textures/Gamer.jpg");
+
 MeshRenderer box1 = new MeshRenderer(new BoxMesh(), material);
-box1.Texture = wall;
+box1.Texture = Gamer;
 box1.Transform.Scale = Vector.One.DivideBy(2);
 box1.Transform.Rotation = new Vector(-.7f, .7f, 0f);
 
-MeshRenderer box2 = new MeshRenderer(new BoxMesh(), material);
-box2.Texture = Gamer;
+MeshRenderer box2 = new MeshRenderer(new PyramidMesh(), material);
+box2.Texture = wall;
 box2.Transform.Position = new Vector(-2, -2, 0);
 box2.Transform.Scale = Vector.One.DivideBy(2);
 Camera camera = new Camera(material, window);
@@ -36,11 +37,11 @@ while (!window.ShouldClose)
     cursorX = newCursorX;
     cursorY = newCursorY;
 
-        //Disco color
+    //Disco color
     material.Color = Color.FromHsv(lastFrameTime * 60, 0.8f, 0.6f);
     material.Color = Color.White;
     box1.Transform.Rotation = box1.Transform.Rotation.Add(new Vector(deltaTime * 0.5f, deltaTime, 0f));
-    //material.T = lastFrameTime;
+
 
     Move(camera.Transform, deltaTime, cursorDeltaX, cursorDeltaY);
     
