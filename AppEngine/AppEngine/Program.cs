@@ -14,6 +14,7 @@ Texture Gamer = new Texture("resources/textures/Gamer.jpg");
 
 MeshRenderer plane = new MeshRenderer(new PlaneMesh(), material);
 plane.Texture = wall;
+
 plane.Transform.Position = new Vector(0, -2f, 0);
 
 MeshRenderer box1 = new MeshRenderer(new BoxMesh(), material);

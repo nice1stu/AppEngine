@@ -12,11 +12,11 @@ public class PyramidMesh: Mesh
     {
         new Vertex(new Vector(-0.5f, -0.5f, 0.5f), Color.White, 0f,0f), // 0: bottom-left
         new Vertex(new Vector(0,0.5f, 0), Color.White, 0.5f,1f), // 1: top-left
-        new Vertex(new Vector(0, 0.5f, 0), Color.White, 1.5f, 1f), // 2: top-right
+        new Vertex(new Vector(0, 0.5f, 0), Color.White, 0.5f, 1f), // 2: top-right
         new Vertex(new Vector(0.5f, -0.5f, 0.5f), Color.White, 1f ,0f), // 3: bottom-right
         
         new Vertex(new Vector(-0.5f, -0.5f, -0.5f), Color.White, 1f,0f), // 4: bottom-left
-        new Vertex(new Vector(0,0.5f, 0), Color.White, 1.5f,1f), // 5: top-left
+        new Vertex(new Vector(0,0.5f, 0), Color.White, 0.5f,1f), // 5: top-left
         new Vertex(new Vector(0, 0.5f, 0), Color.White, 0.5f, 1f), // 6: top-right
         new Vertex(new Vector(0.5f, -0.5f, -0.5f), Color.White, 0f ,0f), // 7: bottom-right
 
@@ -29,15 +29,22 @@ public class PyramidMesh: Mesh
     private static readonly uint[] indices =
     {
         //front
-        0, 3, 1,
+        0, 1, 2,
+        0, 3, 2,
         //back
-        4, 6, 7,
+        7, 6, 5,
+        7, 4, 5,
         //bottom
         12,13,14,
         12,15,14,
+        //top
+        11, 8, 9,
+        11, 10, 9,
         //right
-        0, 1, 4,
-        //left
+        0, 1, 5,
+        0, 4, 5,
+        //side
+        2, 3, 6,
         3, 6, 7
     };
 }

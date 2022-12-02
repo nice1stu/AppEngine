@@ -32,6 +32,7 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
       <None Remove="resources\Mesh\**" />
+      <None Remove="Mesh\PlaneMesh\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -47,17 +48,18 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Mesh\PlaneMesh" />
       <Folder Include="resources\textures" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="resources\Mesh\**" />
       <Compile Remove="Mesh\PlaneMesh\PlaneMesh.cs" />
+      <Compile Remove="Mesh\PlaneMesh\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="resources\Mesh\**" />
+      <EmbeddedResource Remove="Mesh\PlaneMesh\**" />
     </ItemGroup>
 
 </Project>
