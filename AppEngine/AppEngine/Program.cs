@@ -11,9 +11,10 @@ Window window = new Window();
 Material material = new Material();
 Texture wall = new Texture("resources/textures/wall.jpg");
 Texture Gamer = new Texture("resources/textures/Gamer.jpg");
+Texture texture = new Texture("resources/textures/Texture03.jpg");
 
 MeshRenderer plane = new MeshRenderer(new PlaneMesh(), material);
-plane.Texture = wall;
+plane.Texture = texture;
 
 plane.Transform.Position = new Vector(0, -2f, 0);
 
