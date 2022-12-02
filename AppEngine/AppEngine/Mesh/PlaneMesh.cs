@@ -25,10 +25,10 @@ public class PlaneMesh: Mesh
         new Vertex(new Vector(0.5f,0.5f, -0.5f), Color.White, 1f,1f), // 10: top-right back
         new Vertex(new Vector(-0.5f, 0.5f, -0.5f), Color.White, 0f, 1f), // 11: top-left back
         
-        new Vertex(new Vector(-0.5f,-0.5f, 0.5f), Color.White, 0f,0f), // 12: bottom-left
-        new Vertex(new Vector(0.5f, -0.5f, 0.5f), Color.White, 1f, 0f), // 13: bottom-right
-        new Vertex(new Vector(0.5f,-0.5f, -0.5f), Color.White, 1f,1f), // 14: bottom-right back
-        new Vertex(new Vector(-0.5f, -0.5f, -0.5f), Color.White, 0f, 1f), // 15: bottom-left back
+        new Vertex(new Vector(-50f,-0.5f, 50f), Color.White, 0f,0f), // 12: bottom-left
+        new Vertex(new Vector(50f, -0.5f, 50f), Color.White, 1f, 0f), // 13: bottom-right
+        new Vertex(new Vector(50f,-0.5f, -50f), Color.White, 1f,1f), // 14: bottom-right back
+        new Vertex(new Vector(-50f, -0.5f, -50f), Color.White, 0f, 1f), // 15: bottom-left back
     };
 
     private static readonly uint[] indices =
