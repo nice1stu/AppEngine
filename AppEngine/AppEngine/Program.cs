@@ -18,13 +18,13 @@ plane.Texture = texture;
 
 plane.Transform.Position = new Vector(0, -2f, 0);
 
-MeshRenderer box1 = new MeshRenderer(new BoxMesh(), material);
-box1.Texture = Gamer;
+MeshRenderer box1 = new MeshRenderer(new PyramidMesh(), material);
+box1.Texture = wall;
 box1.Transform.Scale = Vector.One.DivideBy(2);
 box1.Transform.Rotation = new Vector(-.7f, .7f, 0f);
 
-MeshRenderer box2 = new MeshRenderer(new PyramidMesh(), material);
-box2.Texture = wall;
+MeshRenderer box2 = new MeshRenderer(new BoxMesh(), material);
+box2.Texture = Gamer;
 box2.Transform.Position = new Vector(-2, -2, 0);
 box2.Transform.Scale = Vector.One.DivideBy(2);
 Camera camera = new Camera(material, window);
