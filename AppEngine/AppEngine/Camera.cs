@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Maths;
 
 namespace AppEngine;
@@ -11,6 +12,7 @@ public class Camera
     public float FarPlaneDistance = 1000f;
     private readonly Material _material;
     private readonly Window _window;
+    public float gravity = -9.8f;
 
     public Camera(Material material, Window window)
     {
@@ -22,5 +24,10 @@ public class Camera
     {
         _material.View = Transform.Matrix.Invert();
         _material.Projection = Matrix.Perspective(FieldOfViewDegrees * MathF.PI / 180, _window.AspectRatio, NearPlaneDistance, FarPlaneDistance);
+    }
+
+    public void Update()
+    {
+        
     }
 }

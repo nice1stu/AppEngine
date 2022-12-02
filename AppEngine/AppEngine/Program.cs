@@ -46,6 +46,7 @@ while (!window.ShouldClose)
     //Disco color
     material.Color = Color.FromHsv(lastFrameTime * 60, 0.8f, 0.6f);
     material.Color = Color.White;
+    
     box1.Transform.Rotation = box1.Transform.Rotation.Add(new Vector(deltaTime * 0.5f, deltaTime, 0f));
 
 
