@@ -72,6 +72,7 @@ public class MeshRenderer
         Texture?.Use();
         _material.Use();
         _material.Model = Transform.Matrix;
+        //Matrix model = Matrix.Identity;
         //draw whatever vertices are currently bound
         glBindVertexArray(_vertexArrayObject);
         glDrawElements(GL_TRIANGLES, _mesh.Indices.Length, GL_UNSIGNED_INT, null);

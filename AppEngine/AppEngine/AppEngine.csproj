@@ -47,11 +47,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Mesh\PlaneMesh" />
       <Folder Include="resources\textures" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="resources\Mesh\**" />
+      <Compile Remove="Mesh\PlaneMesh\PlaneMesh.cs" />
     </ItemGroup>
 
     <ItemGroup>
