@@ -28,8 +28,7 @@ box2.Texture = gamer;
 box2.Transform.Position = new Vector(-2, -2, 0);
 box2.Transform.Scale = Vector.One.DivideBy(2);
 
-MeshRenderer box2 = new MeshRenderer(new BoxMesh(), material);
-object focusCube;
+MeshRenderer focusCube = new MeshRenderer(new BoxMesh(), material);
 focusCube.Transform.Position = new Vector(0, 0, 0);
 
 Camera camera = new Camera(material, window);
