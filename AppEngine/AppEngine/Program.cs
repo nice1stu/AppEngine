@@ -18,13 +18,18 @@ plane.Texture = texture;
 
 plane.Transform.Position = new Vector(0, -2f, 0);
 
-MeshRenderer box1 = new MeshRenderer(new PyramidMesh(), material);
-box1.Texture = wall;
+MeshRenderer box1 = new MeshRenderer(new BoxMesh(), material);
+box1.Texture = Gamer;
 box1.Transform.Scale = Vector.One.DivideBy(2);
 box1.Transform.Rotation = new Vector(-.7f, .7f, 0f);
 
+<<<<<<< HEAD
 MeshRenderer box2 = new MeshRenderer(new BoxMesh(), material);
 box2.Texture = gamer;
+=======
+MeshRenderer box2 = new MeshRenderer(new PyramidMesh(), material);
+box2.Texture = wall;
+>>>>>>> parent of 707d432 (switch pyramid to float over cube)
 box2.Transform.Position = new Vector(-2, -2, 0);
 box2.Transform.Scale = Vector.One.DivideBy(2);
 
