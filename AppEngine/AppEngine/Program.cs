@@ -7,8 +7,6 @@ using Maths;
 using Window = AppEngine.Window;
 
 Console.WriteLine("Starting engine...");
-Vector velocity = Vector.Zero;//
-Vector gravity = new Vector(0, -9.81f, 0);//
 Window window = new Window();
 Material material = new Material();
 Texture wall = new Texture("resources/textures/wall.jpg");
@@ -80,7 +78,9 @@ void Move(Transform transform,float deltaTime, float deltaCursorX, float deltaCu
         movement.X -= 1f;
     if (window.GetKey(Keys.D))
         movement.X += 1f;
-
+    
+    float gravity = -9.8f;
+    movement.Y += gravity * deltaTime;
 
     transform.MoveLocal(movement.MultiplyWith(deltaTime));
 }
