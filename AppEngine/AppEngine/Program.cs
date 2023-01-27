@@ -7,6 +7,8 @@ using Maths;
 using Window = AppEngine.Window;
 
 Console.WriteLine("Starting engine...");
+Vector velocity = Vector.Zero;//
+Vector gravity = new Vector(0, -9.81f, 0);//
 Window window = new Window();
 Material material = new Material();
 Texture wall = new Texture("resources/textures/wall.jpg");
