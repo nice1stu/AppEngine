@@ -3,6 +3,7 @@ using AppEngine;
 using AppEngine.Mesh;
 using GLFW;
 using Maths;
+using OpenGL;
 using Window = AppEngine.Window;
 
 Console.WriteLine("Starting engine...");
@@ -29,6 +30,10 @@ box2.Transform.Position = new Vector(-2, -2, 0);
 box2.Transform.Scale = Vector.One.DivideBy(2);
 Camera camera = new Camera(material, window);
 camera.Transform.Position = new Vector(0, 0, 3);
+
+//Gravity
+float velocity = 0f;
+float gravity = -9.8f;
 
 float lastFrameTime = (float)Glfw.Time;
 window.GetCursorPosition(out float cursorX, out float cursorY);
@@ -74,7 +79,7 @@ Glfw.Terminate();
 void Move(Transform transform, float deltaTime, float deltaCursorX, float deltaCursorY)
 {
     const float mouseSensitivity = 0.001f;
-    const float movementFactor = 0.005f;
+    const float movementFactor = 0.05f;
 
     //if F key is pressed:
     //  focus on box2 (use cross product to calculate rotation and assign it to transform.Rotation
@@ -83,9 +88,10 @@ void Move(Transform transform, float deltaTime, float deltaCursorX, float deltaC
     {
         Vector up = new Vector(0, 1, 0);
         Vector deltaPosition = box2.Transform.Position.Subtract(transform.Position).Normalize();
-        Vector right = Vector.Cross(up, deltaPosition).Normalize();
-        Vector forward = Vector.Cross(up, right).Normalize();
-        transform.Rotation = Matrix.FromBaseVectors(right, up, forward);
+        Vector right = Vector.Cross(deltaPosition,up).Normalize();
+        Vector forward = deltaPosition.MultiplyWith(-1);
+        up = Vector.Cross(forward,right).Normalize();
+        transform.Rotation = Matrix.FromBaseVectors(right, up,forward);
         
         if (window.GetKey(Keys.W))
         {
