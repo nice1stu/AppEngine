@@ -53,15 +53,7 @@ while (!window.ShouldClose)
     material.Color = Color.White;
     
     box1.Transform.Rotation = Matrix.Rotation(new Vector(deltaTime * 0.5f, deltaTime, 0f)) * box1.Transform.Rotation;
-
-    // float velocity
-    //if F key is not pressed
-    // we know plane is at Y zero
-    // if camera.Tramsform.position.Y > 0
-    // simulate falling
-    // else
-    // if player press space simulate jumping
-
+    
     Move(playerCam.Transform, deltaTime, cursorDeltaX, cursorDeltaY);
     
     //render
