@@ -141,7 +141,7 @@ void Move(Transform transform, float deltaTime, float deltaCursorX, float deltaC
     if(!isJumping && window.GetKey(Keys.Space))
     {
         isJumping = true;
-        jumpVelocity = 0.003f;
+        jumpVelocity = 0.5f;
     }
     
     if(isJumping)
@@ -155,6 +155,4 @@ void Move(Transform transform, float deltaTime, float deltaCursorX, float deltaC
             isJumping = false;
         }
     }
-    
-    
 }
