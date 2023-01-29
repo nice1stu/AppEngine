@@ -128,10 +128,10 @@ public class VectorTests
      }
 
      [Test]
-     public void Normalized()
+     public void Normalize()
      {
          Vector enemyDisplacement = new Vector(4, 0, 3);
-         Vector enemyDirection = enemyDisplacement.Normalized(); // (0.8, 0. 0.6)
+         Vector enemyDirection = enemyDisplacement.Normalize(); // (0.8, 0. 0.6)
          
          Assert.That(enemyDirection, Is.EqualTo (new Vector(0.8f, 0.0f, 0.6f)));
      }
@@ -167,11 +167,18 @@ public class VectorTests
      }
      
      [Test]
-     public void Cross()
+     public void TestVectorCrossProduct()
      {
-     Vector right = new Vector(1, 0, 0);
-     Vector up = new Vector(0, 1, 0);
-     Vector forward = right.Cross(right, up); // (0, 0, 1)
+         // Arrange
+         Vector v1 = new Vector(1, 2, 3);
+         Vector v2 = new Vector(4, 5, 6);
+         Vector expected = new Vector(-3, 6, -3);
+
+         // Act
+         Vector result = Vector.Cross(v1, v2);
+
+         // Assert
+         Assert.AreEqual(expected, result);
      }
 
      [Test]

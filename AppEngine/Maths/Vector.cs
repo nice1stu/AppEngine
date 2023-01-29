@@ -78,7 +78,7 @@ public record struct Vector
         }
     }
 
-    public Vector Normalized() // vector / magnitude
+    public Vector Normalize() // vector / magnitude
     {
         float magnitude = Magnitude;
         return new Vector (X / magnitude, Y / magnitude, Z / magnitude);
@@ -119,7 +119,7 @@ public record struct Vector
         return (numerator / MathF.Sqrt(denominatorA * denominatorB));
     } // dot a & b / mag a & b
 
-    public Vector Cross(Vector right, Vector up)
+    public static Vector Cross(Vector right, Vector up)
     {
         return new Vector(((right.Y * up.Z) - (up.Y * right.Z)), ((right.X * up.Z) - (up.X * right.Z) * -1), ((right.X * up.Y) - (up.X * right.Y)));
     }

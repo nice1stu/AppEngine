@@ -6,9 +6,9 @@ public class Transform
 {
     private readonly Material _material;
     public Vector Position;
-    public Vector Rotation;
+    public Matrix Rotation = Matrix.Identity;
     public Vector Scale = Vector.One;
-    public Matrix Matrix => Matrix.Translation(Position) * Matrix.Rotation(Rotation) * Matrix.Scale(Scale);
+    public Matrix Matrix => Matrix.Translation(Position) * Rotation * Matrix.Scale(Scale);
     
     public void MoveLocal(Vector vector)
     {
