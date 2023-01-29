@@ -15,7 +15,6 @@ Texture texture = new Texture("resources/textures/Texture03.jpg");
 
 MeshRenderer plane = new MeshRenderer(new PlaneMesh(), material);
 plane.Texture = texture;
-
 plane.Transform.Position = new Vector(0, -2f, 0);
 
 MeshRenderer box1 = new MeshRenderer(new PyramidMesh(), material);
@@ -26,12 +25,15 @@ MeshRenderer box2 = new MeshRenderer(new BoxMesh(), material);
 box2.Texture = Gamer;
 box2.Transform.Position = new Vector(-2, -2, 0);
 box2.Transform.Scale = Vector.One.DivideBy(2);
-Camera camera = new Camera(material, window);
-camera.Transform.Position = new Vector(0, 0, 3);
+
+Camera playerCam = new Camera(material, window);
+playerCam.Transform.Position = new Vector(0, 0, 3);
 
 //Gravity
 float velocity = 0f;
-float gravity = -9.8f;
+float gravity = -98.0f;
+bool isJumping = false;
+float jumpVelocity = 0f;
 
 float lastFrameTime = (float)Glfw.Time;
 window.GetCursorPosition(out float cursorX, out float cursorY);
@@ -60,11 +62,11 @@ while (!window.ShouldClose)
     // else
     // if player press space simulate jumping
 
-    Move(camera.Transform, deltaTime, cursorDeltaX, cursorDeltaY);
+    Move(playerCam.Transform, deltaTime, cursorDeltaX, cursorDeltaY);
     
     //render
     window.BeginRender();
-    camera.Render();
+    playerCam.Render();
     box1.Render();
     box2.Render();
     plane.Render();
@@ -78,68 +80,81 @@ void Move(Transform transform, float deltaTime, float deltaCursorX, float deltaC
 {
     const float mouseSensitivity = 0.001f;
     const float movementFactor = 0.05f;
-
-    //if F key is pressed:
-    //  focus on box2 (use cross product to calculate rotation and assign it to transform.Rotation
-    // WS moves Up/Down & AD Left/Right
+    
+    // F key pressed
     if (window.GetKey(Keys.F))
     {
         Vector up = new Vector(0, 1, 0);
-        Vector deltaPosition = box2.Transform.Position.Subtract(transform.Position).Normalize();
+        Vector deltaPosition = box2.Transform.Position.Subtract(playerCam.Transform.Position).Normalize();
         Vector right = Vector.Cross(deltaPosition, up).Normalize();
         Vector forward = deltaPosition.MultiplyWith(-1);
         up = Vector.Cross(forward,right).Normalize();
-        transform.Rotation = Matrix.FromBaseVectors(right, up,forward);
+        playerCam.Transform.Rotation = Matrix.FromBaseVectors(right, up,forward);
         
         if (window.GetKey(Keys.W))
         {
-            Vector forwardOrbit = forward.MultiplyWith(movementFactor);
-            transform.MoveLocal(forwardOrbit);
+            Vector upward = new Vector(0, movementFactor, 0);
+            transform.MoveLocal(upward);
         }
         if (window.GetKey(Keys.S))
         {
-            Vector backOrbit = forward.MultiplyWith(-movementFactor);
-            transform.MoveLocal(backOrbit);
+            Vector backward = new Vector(0, -movementFactor, 0);
+            transform.MoveLocal(backward);
         }
         if (window.GetKey(Keys.A))
         {
-            Vector leftOrbit = right.MultiplyWith(-movementFactor);
-            transform.MoveLocal(leftOrbit);
+            Vector leftside = new Vector(-movementFactor, 0, 0);
+            transform.MoveLocal(leftside);
         }
         if (window.GetKey(Keys.D))
         {
-            Vector rightOrbit = right.MultiplyWith(movementFactor);
-            transform.MoveLocal(rightOrbit);
+            Vector rightside = new Vector(movementFactor, 0, 0);
+            transform.MoveLocal(rightside);
         }
     }
     else
     {
-        // if F key is not pressed (else)
-    // use deltaCursor X & Y to rotate the camera
-    // WS moves Forwad/Back & AD Strafe Left/Right
+        // F key not pressed
+        Matrix xRotation = Matrix.Rotation(new Vector(0, deltaCursorX*mouseSensitivity*-1, 0)); 
+        Matrix yRotation = Matrix.Rotation(new Vector(deltaCursorY*mouseSensitivity*1, 0, 0)); 
+        transform.Rotation = xRotation * transform.Rotation * yRotation;
 
-    // F key not pressed
-    Matrix xRotation = Matrix.Rotation(new Vector(0, deltaCursorX*mouseSensitivity*-1, 0));
-    Matrix yRotation = Matrix.Rotation(new Vector(deltaCursorY*mouseSensitivity*-1, 0, 0));
-    transform.Rotation = xRotation * transform.Rotation * yRotation;
-
-    Vector movement = Vector.Zero;
-    if (window.GetKey(Keys.W))
-        movement.Z -= 1f;
-    if (window.GetKey(Keys.S))
-        movement.Z += 1f;
-    if (window.GetKey(Keys.A))
-        movement.X -= 1f;
-    if (window.GetKey(Keys.D))
-        movement.X += 1f;
+        Vector movement = Vector.Zero;
+        if (window.GetKey(Keys.W))
+            movement.Z -= 1f;
+        if (window.GetKey(Keys.S))
+            movement.Z += 1f;
+        if (window.GetKey(Keys.A))
+            movement.X -= 1f;
+        if (window.GetKey(Keys.D))
+            movement.X += 1f;
     
-    //Add Gravity
-    
-    //float gravity = -98.0f;
-    //movement.Y += gravity * deltaTime;
+        //Add Gravity
 
-    transform.MoveLocal(movement.MultiplyWith(deltaTime));
-    //transform.Position = new Vector(transform.Position.X, Math.Max(transform.Position.Y, -2f), transform.Position.Z);
+        movement.Y += gravity * deltaTime;
+
+        transform.MoveLocal(movement.MultiplyWith(deltaTime));
+        transform.Position = new Vector(transform.Position.X, Math.Max(transform.Position.Y, -2f), transform.Position.Z);
     }
+
+    
+    if(!isJumping && window.GetKey(Keys.Space))
+    {
+        isJumping = true;
+        jumpVelocity = 0.003f;
+    }
+    
+    if(isJumping)
+    {
+        playerCam.Transform.Position = new Vector(transform.Position.X, transform.Position.Y + jumpVelocity, transform.Position.Z);
+        jumpVelocity += gravity * deltaTime;
+        
+        if(playerCam.Transform.Position.Y <= 0)
+        {
+            playerCam.Transform.Position = new Vector(transform.Position.X, 0, transform.Position.Z);
+            isJumping = false;
+        }
+    }
+    
     
 }
