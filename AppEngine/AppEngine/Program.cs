@@ -21,8 +21,6 @@ plane.Transform.Position = new Vector(0, -2f, 0);
 MeshRenderer box1 = new MeshRenderer(new PyramidMesh(), material);
 box1.Texture = wall;
 box1.Transform.Scale = Vector.One.DivideBy(2);
-//box1.Transform.Rotation = new Vector(-.7f, .7f, 0f);
-box1.Transform.Rotation = Matrix.Rotation(new Vector(-0.7f, 0.7f, 0f)) * box1.Transform.Rotation;
 
 MeshRenderer box2 = new MeshRenderer(new BoxMesh(), material);
 box2.Texture = Gamer;
@@ -88,7 +86,7 @@ void Move(Transform transform, float deltaTime, float deltaCursorX, float deltaC
     {
         Vector up = new Vector(0, 1, 0);
         Vector deltaPosition = box2.Transform.Position.Subtract(transform.Position).Normalize();
-        Vector right = Vector.Cross(deltaPosition,up).Normalize();
+        Vector right = Vector.Cross(deltaPosition, up).Normalize();
         Vector forward = deltaPosition.MultiplyWith(-1);
         up = Vector.Cross(forward,right).Normalize();
         transform.Rotation = Matrix.FromBaseVectors(right, up,forward);
@@ -135,6 +133,13 @@ void Move(Transform transform, float deltaTime, float deltaCursorX, float deltaC
     if (window.GetKey(Keys.D))
         movement.X += 1f;
     
-    transform.MoveLocal(movement.MultiplyWith(deltaTime)); 
+    //Add Gravity
+    
+    //float gravity = -98.0f;
+    //movement.Y += gravity * deltaTime;
+
+    transform.MoveLocal(movement.MultiplyWith(deltaTime));
+    //transform.Position = new Vector(transform.Position.X, Math.Max(transform.Position.Y, -2f), transform.Position.Z);
     }
+    
 }
