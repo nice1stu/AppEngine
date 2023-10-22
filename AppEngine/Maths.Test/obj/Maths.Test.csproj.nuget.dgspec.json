@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\Maths.Test.csproj": {}
+    "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\Maths.Test.csproj": {}
   },
   "projects": {
-    "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\Maths.Test.csproj": {
+    "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\Maths.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\Maths.Test.csproj",
+        "projectUniqueName": "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\Maths.Test.csproj",
         "projectName": "Maths.Test",
-        "projectPath": "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\Maths.Test.csproj",
+        "projectPath": "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\Maths.Test.csproj",
         "packagesPath": "C:\\Users\\nice1\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\obj\\",
+        "outputPath": "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj": {
-                "projectPath": "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj"
+              "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj": {
+                "projectPath": "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj"
               }
             }
           }
@@ -90,18 +90,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj": {
+    "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj",
+        "projectUniqueName": "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj",
         "projectName": "Maths",
-        "projectPath": "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj",
+        "projectPath": "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\Maths.csproj",
         "packagesPath": "C:\\Users\\nice1\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\obj\\",
+        "outputPath": "F:\\Game Programming\\106-maths-and-physics-nice1stu\\AppEngine\\Maths\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -156,7 +156,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
